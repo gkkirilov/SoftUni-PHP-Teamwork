@@ -15,10 +15,10 @@ mb_internal_encoding("utf-8");
         <header>
             <nav>
                 <ul>
-                    <li><a href="">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="">Posts</a></li>
                     <li><a href="">About us</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
             <h1><a href="index.php">Blog</a></h1>
