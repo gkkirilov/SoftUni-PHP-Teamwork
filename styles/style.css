@@ -128,3 +128,86 @@ aside ul li a:hover{
     color: #fff;
     float: right;
 }
+
+/* Contact form style BEGIN */
+
+section#contact-form {
+    margin: 0 auto 20px;
+
+}
+
+#title {
+    color: #FF6D44;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="email"] {
+    display: block;
+    font-family: sans-serif;
+    font-size: 18px;
+    box-shadow: none;
+    padding: 0 5px 0 5px;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    outline: none;
+}
+
+input, textarea {
+    border: solid 1px #dcdcdc;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+#contact-subject {
+    display: block;
+    margin: 0 auto;
+    width: 318px;
+}
+
+#contact-subject:focus {
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #FF6D44;
+}
+
+#contact-address {
+    display: block;
+    margin: 2px auto;
+    width: 318px;
+}
+
+#question {
+    display: block;
+    margin: 7px auto;
+    resize: none;
+    width: 328px;
+    height: 200px;
+    font-size: 20px;
+}
+
+#send-button {
+    display: block;
+    margin: 0 auto;
+    width: 330px;
+    height: 40px;
+    border-top: 4px solid transparent;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+#send-button:hover {
+    cursor: pointer;
+    border-top: 4px solid #FF6D44;
+}
+
+#send-button:focus {
+    outline: none;
+}
+
+#contact-subject:focus, #contact-address:focus, #question:focus {
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #FF6D44;
+}
+
+/* Contact form style END */
