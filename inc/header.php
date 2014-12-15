@@ -36,8 +36,8 @@ require "utils.php";
         </aside>
 
         <aside id="search-bar">
-            <h4 id="search-title">Search</h4>
-            <form action="" id="search-field">
+            <h4 id="search-title">Search by tag</h4>
+            <form action="search.php" id="search-field" method="get">
                 <label for="search">
                     <input type="text" name="search" id="search"/>
                 </label>
