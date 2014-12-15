@@ -20,6 +20,7 @@ class Database
     public function getAllPosts($start = false, $show = false)
     {
         $limit = "";
+        $posts = array();
         if ($start !== false && $show !== false) {
             $limit = " limit " . $start . ", " . $show;
         }
@@ -33,6 +34,7 @@ class Database
     public function  searchByTag($tag, $start = false, $show = false)
     {
         $limit = "";
+        $posts = array();
         if ($start !== false && $show !== false) {
             $limit = " limit " . $start . ", " . $show;
         }
