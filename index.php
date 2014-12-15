@@ -10,9 +10,9 @@ require "inc/utils.php";
 $posts = array();
 
 if (isset($_GET["tag"])) {
-    $tag = htmlentities($_GET["tag"]);
+    $tag = strip_tags($_GET["tag"]);
     $posts = $db->searchByTag($tag);
-    echo ' <div class="filter" >Posts filtered by tag: ' . $tag . '<a href="index.php"> Remove</a></div > ';
+    echo ' <div class="filter" >Posts filtered by tag: ' . $tag . '<a href="index.php">b</a></div > ';
 } else {
     $posts = $db->getAllPosts();
 }

@@ -9,6 +9,11 @@ html, body {
     background: #eee;
 }
 
+@font-face {
+    font-family: icons;
+    src: url(../fonts/font.ttf);
+}
+
 /* Main header style BEGIN */
 .wrapper {
     width: 900px;
@@ -288,7 +293,10 @@ footer {
 
 .filter a {
     color: #dc0207;
+    font-family: icons;
     font-width: bold;
+    line-height: 15px;
+    vertical-align: middle;
 }
 
 .filter a:hover {
