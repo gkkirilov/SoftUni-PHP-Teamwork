@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set("Europe/Sofia");
 mb_internal_encoding("utf-8");
+require "utils.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,10 +16,11 @@ mb_internal_encoding("utf-8");
         <header>
             <nav>
                 <ul>
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="<?= getSearchUrl('index.php') ?>">Home</a></li>
                     <li><a href="">Posts</a></li>
                     <li><a href="">About us</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="<?= getSearchUrl('contact.php')?>">Contact</a></li>
+                    <li><input type="search"/></li>
                 </ul>
             </nav>
             <h1><a href="index.php">Blog</a></h1>

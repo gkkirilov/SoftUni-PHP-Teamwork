@@ -3,7 +3,6 @@ require "inc/Database.php";
 $db = new Database();
 $title = "Blog | Home";
 require "inc/header.php";
-require "inc/utils.php";
 
 $posts = array();
 
@@ -27,7 +26,7 @@ if (isset($_GET["tag"])) {
                 echo '<div class="postContent" > ' . nl2br($row['text']) . ' </div > ';
                 echo '<div class="tags" > Tags: ';
                 $tags = explode(',', $row['tags']);
-                for ($i = 1; $i < count($tags); $i++) {
+                for ($i = 0; $i < count($tags); $i++) {
                     $tag = trim($tags[$i]);
                     echo '<a class="tag" href="' . getSearchUrl("index.php?tag=".$tag) . '">#' . $tag . ' </a>';
                 }
