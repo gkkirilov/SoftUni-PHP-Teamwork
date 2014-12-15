@@ -14,7 +14,6 @@ if (isset($_GET["tag"])) {
 } else {
     $posts = $db->getAllPosts();
 }
-
 ?>
     <div class="posts">
         <?php
@@ -30,7 +29,7 @@ if (isset($_GET["tag"])) {
                 $tags = explode(',', $row['tags']);
                 for ($i = 1; $i < count($tags); $i++) {
                     $tag = trim($tags[$i]);
-                    echo '<a class="tag" href="' . getSearchUrl($tag) . '">#' . $tag . ' </a>';
+                    echo '<a class="tag" href="' . getSearchUrl("index.php?tag=".$tag) . '">#' . $tag . ' </a>';
                 }
                 echo '</div>';
                 echo '</div>';
