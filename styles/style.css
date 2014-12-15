@@ -9,9 +9,6 @@ html, body {
     background: #eee;
 }
 
-
-
-
 /* Main header style BEGIN */
 .wrapper {
     width: 900px;
@@ -119,10 +116,8 @@ aside ul li a {
 aside ul li a:hover {
     color: #fff;
 }
+
 /* Main header style END */
-
-
-
 
 /* Admin panel style BEGIN */
 .adminError p {
@@ -165,9 +160,8 @@ aside ul li a:hover {
     color: #fff;
     float: right;
 }
+
 /* Admin panel style END */
-
-
 
 /* Contact form style BEGIN */
 section#contact-form {
@@ -262,9 +256,8 @@ input, textarea {
     font-size: 18px;
     font-weight: bold;
 }
+
 /* Contact form style END */
-
-
 
 /* Footer style BEGIN */
 footer {
@@ -273,8 +266,8 @@ footer {
     height: 200px;
     background-color: rgba(51, 51, 51, 0.18);
 }
-/* Footer style END */
 
+/* Footer style END */
 
 .tags {
     margin-top: 25px;
@@ -287,4 +280,17 @@ footer {
 
 .tag:hover {
     color: #ff694d;
+}
+
+.filter {
+    color: #ff6d44;
+}
+
+.filter a {
+    color: #dc0207;
+    font-width: bold;
+}
+
+.filter a:hover {
+    color: #7b0206;
 }
