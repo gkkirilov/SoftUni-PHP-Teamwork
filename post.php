@@ -5,7 +5,7 @@ $title =  "Blog | Posts";
 $styleFile = "styles/style.css";
 $scriptFile = "scripts/script.js";
 require "inc/header.php";
-require "inc/utils.php";
+
 $posts = $db->getAllPosts();
 ?>
 
