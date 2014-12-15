@@ -103,7 +103,7 @@ aside{
 aside div{
     border-top: 5px solid #FF6D44;
     padding: 15px 25px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     background: #333;
     width: 100%;
     box-sizing: border-box;
@@ -312,15 +312,6 @@ form#search-field {
     text-align: center;
     font-size: 20px;
     margin: -8px 0 5px 0;
-}
-
-aside .searchBar {
-    margin-top: 10px;
-    margin-left: 500px;
-    float: right;
-    text-align: left;
-    background: #333;
-    border-top: 5px solid #FF6D44;
 }
 
 aside .searchBar #search {

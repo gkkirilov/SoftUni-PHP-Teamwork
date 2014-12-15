@@ -20,21 +20,11 @@ require "utils.php";
                     <li><a href="">Posts</a></li>
                     <li><a href="">About us</a></li>
                     <li><a href="<?= getSearchUrl('contact.php')?>">Contact</a></li>
-                    <li><input type="search"/></li>
                 </ul>
             </nav>
             <h1><a href="index.php">Blog</a></h1>
         </header>
         <aside>
-            <div>
-				<ul>
-					<li><a href="#">Lorem Ipsum is simply</a></li>
-					<li><a href="#">Lorem Ipsum is simply</a></li>
-					<li><a href="#">Lorem Ipsum is simply</a></li>
-					<li><a href="#">Lorem Ipsum is simply</a></li>
-					<li><a href="#">Lorem Ipsum is simply</a></li>
-				</ul>
-			</div>
             <div class="searchBar">
                 <h4 id="search-title">Search by tag</h4>
                 <form action="search.php" id="search-field" method="get">
@@ -43,6 +33,15 @@ require "utils.php";
                     </label>
                     <input type="submit" id="search-button" value=""/>
                 </form>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="#">Lorem Ipsum is simply</a></li>
+                    <li><a href="#">Lorem Ipsum is simply</a></li>
+                    <li><a href="#">Lorem Ipsum is simply</a></li>
+                    <li><a href="#">Lorem Ipsum is simply</a></li>
+                    <li><a href="#">Lorem Ipsum is simply</a></li>
+                </ul>
             </div>
         </aside>
         <main>
