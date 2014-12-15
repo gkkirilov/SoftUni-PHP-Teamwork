@@ -18,6 +18,7 @@ if (isset($_GET["tag"])) {
 ?>
     <div class="posts">
         <?php
+        session_start();
         if (count($posts) > 0) {
             foreach ($posts as $row) {
                 $_SESSION['row'.$row['id']] = $row;
