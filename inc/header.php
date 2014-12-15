@@ -7,11 +7,11 @@ mb_internal_encoding("utf-8");
 <head>
     <meta charset="UTF-8">
     <title><?= $title ?></title>
-    <link rel="stylesheet" href="<?= $styleFile ?>"/>
-    <script src="<?= $scriptFile ?>"></script>
+    <link rel="stylesheet" href="<?= !isset($styleFile) ? 'styles/style.css' : $styleFile;  ?>"/>
+    <script src="<?= !isset($scriptFile) ? 'scripts/script.js' : $scriptFile; ?>"></script>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper clear">
         <header>
             <nav>
                 <ul>

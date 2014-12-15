@@ -35,12 +35,11 @@ main {
     border-bottom: 3px double #666;
 }
 
-.post:after {
+.clear:after {
     clear: both;
     display: block;
     content: "";
 }
-
 .post .date {
     float: right;
     font-style: italic;
@@ -104,7 +103,6 @@ aside {
     padding: 15px 25px;
     border-top: 5px solid #FF6D44;
 }
-
 aside ul {
     list-style: square;
     padding-left: 15px;

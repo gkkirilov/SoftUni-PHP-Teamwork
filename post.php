@@ -2,8 +2,6 @@
 require "inc/Database.php";
 $db = new Database();
 $title =  "Blog | Home";
-$styleFile = "styles/style.css";
-$scriptFile = "scripts/script.js";
 require "inc/header.php";
 ?>
 
