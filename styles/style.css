@@ -1,8 +1,130 @@
-html, body{
-    margin: 0;
+*{
+    text-decoration:none;
     padding: 0;
+    margin: 0;
+    font-family: Calibri;
 }
-main{
+html, body{
+    background: #eee;
+}
+.wrapper{
     width: 900px;
     margin: 0 auto;
+}
+main{
+    width: 600px;
+    background: #333;
+    padding: 15px 25px;
+    border-top: 5px solid #FF6D44;
+}
+.post{
+    margin-bottom: 20px;
+    color: #ccc;
+    padding: 10px 0 30px 0;
+    font-size: 16px;
+    border-bottom: 3px double #666;
+}
+.post:after{
+    clear:both;
+    display: block;
+    content: "";
+}
+.post .date{
+    float:right;
+    font-style:italic;
+    font-size:14px;
+    color: #999;
+    margin: 5px 10px 0 0;
+}
+.post .postTitle a{
+    font-size: 25px;
+    color: #ff976b;
+}
+
+.post .postTitle a:hover{
+    font-size: 25px;
+    color: #ffb788;
+}
+.wrapper > header{
+    padding: 30px 0;
+}
+.wrapper > header nav{
+    float: right;
+}
+.wrapper > header nav ul{
+    font-size: 0;
+}
+.wrapper > header nav ul li{
+    list-style:none;
+    display: inline-block;
+}
+.wrapper > header nav ul li a{
+    display:block;
+    padding: 10px 15px;
+    font-size: 20px;
+    color: #999;
+}
+.wrapper > header nav ul li a:hover{
+    background: #e6e6e6;
+    color: #333;
+    border-bottom: 3px solid #ff976b;;
+}
+.wrapper > header > h1 a{
+    font-size: 40px;
+    color: #666;
+    font-family: Georgia, serif;
+    text-shadow: 2px 2px 0 rgba(0,0,0, 0.1);
+}
+aside{
+    float:right;
+    text-align: left;
+    width: 175px;
+    background: #333;
+    padding: 15px 25px;
+    border-top: 5px solid #FF6D44;
+}
+aside ul{
+    list-style: square;
+    padding-left: 15px;
+}
+aside ul li {
+    color: #ffcc00;
+}
+aside ul li a{
+    color: #ccc;
+}
+aside ul li a:hover{
+    color: #fff;
+}
+.adminError p{
+    color:#ff976b;
+}
+.adminError{
+    margin-bottom: 10px;
+}
+.adminPanel{
+    color: #ccc;
+}
+.adminPanel form input, .adminPanel form textarea,  .adminPanel form button{
+    display:block;
+    margin: 5px 0;
+    padding: 5px;
+    box-sizing: border-box;
+    width:  200px;
+}
+.adminPanel form textarea{
+    width: 100%;
+}
+.adminPanel form label{
+    display: block;
+}
+.adminSuccess p{
+    color: #00ba00;
+}
+.adminSuccess{
+    margin-top: 10px;
+}
+.adminLogout{
+    color: #fff;
+    float: right;
 }

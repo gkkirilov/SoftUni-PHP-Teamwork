@@ -1,6 +1,8 @@
 <?php
     session_start();
-
+    if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] === true){
+        header("Location: addPost.php");
+    }
     $admins = array(
         "admin" => "admin",
         "admin2"=> "nopass"
@@ -20,17 +22,23 @@
     }
 
     $title = "Admin Panel";
+    $styleFile = "../styles/style.css";
+    $scriptFile = "../scripts/script.js";
     require '../inc/header.php';
 
     if($_POST && (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === false)){
-        echo "Access denied.";
+        echo '<div class="adminError">';
+        echo '<p>Access denied.</p>';
+        echo '</div>';
     }
 ?>
-    <form action="index.php" method="post">
-        <input type="text" name="username" placeholder="username"/><br/>
-        <input type="password" name="password" placeholder="password" /><br/>
-        <input type="submit" value="Submit"/>
-    </form>
+  <div class="adminPanel">
+      <form action="index.php" method="post">
+          <input type="text" name="username" value="<?= isset($username) ? $username : '' ?>" placeholder="username"/>
+          <input type="password" name="password" placeholder="password"/>
+          <input type="submit" value="Submit"/>
+      </form>
+  </div>
 <?php
 
 require '../inc/footer.php';

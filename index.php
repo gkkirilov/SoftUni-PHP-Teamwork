@@ -1,20 +1,29 @@
 <?php
 require "inc/Database.php";
 $db = new Database();
-$db = $db -> dbConnection;
 $title =  "Blog | Home";
 $styleFile = "styles/style.css";
 $scriptFile = "scripts/script.js";
 require "inc/header.php";
 
-$query = $db->query('SELECT * FROM posts ');
+$posts = $db->getAllPosts();
 
-    if($query->num_rows()){
-        while($row = $query->fetch_assoc()){
-            
+?>
+<div class="posts">
+    <?php
+        if(count($posts) > 0){
+            foreach($posts as $row){
+                echo '<div class="post">';
+                echo '<div class="date clear">'.date('d.m.Y H:i', $row['time']).'</div>';
+                echo '<h3 class="postTitle"><a href="post.php?id='.$row['id'].'" >'.$row['title'].'</a></h3>';
+                echo '<div class="postContent">'.nl2br($row['text']).'</div>';
+                echo '</div>';
+            }
+        }else{
+            echo '<p>No data</p>';
         }
-    }else{
-        echo "<p>No posts.</p>";
-    }
+    ?>
+</div>
+<?php
 
 require "inc/Footer.php";
