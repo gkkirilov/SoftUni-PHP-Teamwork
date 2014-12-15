@@ -20,6 +20,7 @@ if (isset($_GET["tag"])) {
         <?php
         if (count($posts) > 0) {
             foreach ($posts as $row) {
+                $_SESSION['row'.$row['id']] = $row;
                 echo '<div class="post" > ';
                 echo '<div class="date clear" > ' . date('d . m . Y H:i', strtotime($row['time'])) . ' </div > ';
                 echo '<h3 class="postTitle" ><a href = "post.php?id=' . $row['id'] . '" >' . $row['title'] . ' </a ></h3 > ';
