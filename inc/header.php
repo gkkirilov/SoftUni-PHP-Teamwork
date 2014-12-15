@@ -25,7 +25,7 @@ require "utils.php";
             </nav>
             <h1><a href="index.php">Blog</a></h1>
         </header>
-        <aside>
+        <aside id="menu">
             <ul>
                 <li><a href="#">Lorem Ipsum is simply</a></li>
                 <li><a href="#">Lorem Ipsum is simply</a></li>
@@ -33,5 +33,15 @@ require "utils.php";
                 <li><a href="#">Lorem Ipsum is simply</a></li>
                 <li><a href="#">Lorem Ipsum is simply</a></li>
             </ul>
+        </aside>
+
+        <aside id="search-bar">
+            <h4 id="search-title">Search</h4>
+            <form action="" id="search-field">
+                <label for="search">
+                    <input type="text" name="search" id="search"/>
+                </label>
+                <input type="submit" id="search-button" value=""/>
+            </form>
         </aside>
         <main>
