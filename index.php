@@ -26,11 +26,14 @@ if (isset($_GET["tag"])) {
                 echo '<h3 class="postTitle" ><a href = "post.php?id=' . $row['id'] . '" >' . $row['title'] . ' </a ></h3 > ';
                 echo '<div class="postContent" > ' . nl2br($row['text']) . ' </div > ';
                 echo '<div class="tags" > Tags: ';
-                $tags = explode('#', $row['tags']);
-                for ($i = 1; $i < count($tags); $i++)
-                    echo '<a class="tag" href="' . getSearchUrl($tags[$i]) . '">#' . $tags[$i] . ' </a>';
+                $tags = explode(',', $row['tags']);
+                for ($i = 1; $i < count($tags); $i++) {
+                    $tag = trim($tags[$i]);
+                    echo '<a class="tag" href="' . getSearchUrl($tag) . '">#' . $tag . ' </a>';
+                }
                 echo '</div>';
                 echo '</div>';
+
             }
         } else {
             echo '<p>No data</p>';
