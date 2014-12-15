@@ -21,7 +21,7 @@ if (isset($_GET["tag"])) {
             foreach ($posts as $row) {
                 $_SESSION['row'.$row['id']] = $row;
                 echo '<div class="post" > ';
-                echo '<div class="date clear" > ' . date('d . m . Y H:i', strtotime($row['time'])) . ' </div > ';
+                echo '<div class="date clear" > ' . date('d . m . Y H:i', $row['time']) . ' </div > ';
                 echo '<h3 class="postTitle" ><a href = "post.php?id=' . $row['id'] . '" >' . $row['title'] . ' </a ></h3 > ';
                 echo '<div class="postContent" > ' . nl2br($row['text']) . ' </div > ';
                 echo '<div class="tags" > Tags: ';

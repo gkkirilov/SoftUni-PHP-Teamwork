@@ -95,28 +95,33 @@ main {
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-aside#menu {
+aside{
     float: right;
     text-align: left;
-    width: 175px;
-    background: #333;
-    padding: 15px 25px;
-    border-top: 5px solid #FF6D44;
+    width: 215px;
 }
-aside#menu ul {
+aside div{
+    border-top: 5px solid #FF6D44;
+    padding: 15px 25px;
+    margin-bottom: 0px;
+    background: #333;
+    width: 100%;
+    box-sizing: border-box;
+}
+aside div ul {
     list-style: square;
     padding-left: 15px;
 }
 
-aside#menu ul li {
+aside div ul li {
     color: #ffcc00;
 }
 
-aside#menu ul li a {
+aside div ul li a {
     color: #ccc;
 }
 
-aside#menu ul li a:hover {
+aside div ul li a:hover {
     color: #fff;
 }
 
@@ -309,24 +314,22 @@ form#search-field {
     margin: -8px 0 5px 0;
 }
 
-aside#search-bar {
+aside .searchBar {
     margin-top: 10px;
     margin-left: 500px;
     float: right;
     text-align: left;
-    width: 175px;
     background: #333;
-    padding: 15px 25px;
     border-top: 5px solid #FF6D44;
 }
 
-aside#search-bar #search {
+aside .searchBar #search {
     display: inline-block;
     width: 120px;
     vertical-align: middle;
  }
 
-aside#search-bar #search-button {
+aside .searchBar #search-button {
     width: 30px;
     height: 23px;
     vertical-align: middle;
@@ -334,7 +337,7 @@ aside#search-bar #search-button {
     background: #ffffff url(../img/search.png) no-repeat center;
 }
 
-aside#search-bar #search-button:hover {
+aside .searchBar #search-button:hover {
     cursor: pointer;
 }
 /* Search bar style END */

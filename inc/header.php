@@ -25,23 +25,24 @@ require "utils.php";
             </nav>
             <h1><a href="index.php">Blog</a></h1>
         </header>
-        <aside id="menu">
-            <ul>
-                <li><a href="#">Lorem Ipsum is simply</a></li>
-                <li><a href="#">Lorem Ipsum is simply</a></li>
-                <li><a href="#">Lorem Ipsum is simply</a></li>
-                <li><a href="#">Lorem Ipsum is simply</a></li>
-                <li><a href="#">Lorem Ipsum is simply</a></li>
-            </ul>
-        </aside>
-
-        <aside id="search-bar">
-            <h4 id="search-title">Search by tag</h4>
-            <form action="search.php" id="search-field" method="get">
-                <label for="search">
-                    <input type="text" name="search" id="search"/>
-                </label>
-                <input type="submit" id="search-button" value=""/>
-            </form>
+        <aside>
+            <div>
+				<ul>
+					<li><a href="#">Lorem Ipsum is simply</a></li>
+					<li><a href="#">Lorem Ipsum is simply</a></li>
+					<li><a href="#">Lorem Ipsum is simply</a></li>
+					<li><a href="#">Lorem Ipsum is simply</a></li>
+					<li><a href="#">Lorem Ipsum is simply</a></li>
+				</ul>
+			</div>
+            <div class="searchBar">
+                <h4 id="search-title">Search by tag</h4>
+                <form action="search.php" id="search-field" method="get">
+                    <label for="search">
+                        <input type="text" name="search" id="search"/>
+                    </label>
+                    <input type="submit" id="search-button" value=""/>
+                </form>
+            </div>
         </aside>
         <main>
