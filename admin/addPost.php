@@ -26,7 +26,7 @@ require '../inc/Database.php';
         }
 
 
-        if(mb_strlen($artTags) <= 100){
+        if(mb_strlen($artTags) <= 255){
             $arrTags = explode(",", $artTags);
             $tagCnt = 0;
             $hasShortTag = false;
