@@ -10,7 +10,7 @@ $db->viewPost($id);
 $views = $db->getPostViews($id);
 
 
-getHeader();
+getHeader($post['title']);
 
 
 if($post != null){
@@ -27,6 +27,7 @@ if($post != null){
     echo '</div>';
     echo '<div>Views: '.$views.'</div>';
     echo '</div>';
+
 }else{
     echo "<p class='error'>Post not found.</p>";
 }

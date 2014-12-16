@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    require '../inc/struct.php';
     if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] === true){
         header("Location: addPost.php");
     }
@@ -21,10 +21,10 @@
         }
     }
 
-    $title = "Admin Panel";
     $styleFile = "../styles/style.css";
     $scriptFile = "../scripts/script.js";
-    require '../inc/header.php';
+
+    getHeader("Blog | Admin", $styleFile, $scriptFile);
 
     if($_POST && (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === false)){
         echo '<div class="adminError">';
@@ -41,4 +41,4 @@
   </div>
 <?php
 
-require '../inc/footer.php';
+getFooter();

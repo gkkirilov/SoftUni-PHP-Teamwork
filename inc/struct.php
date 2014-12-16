@@ -37,9 +37,9 @@ function getHeader($title, $styleFile = null, $scriptFile = null)
         <div class="searchBar">
             <h4 id="search-title">Search by tag</h4>
 
-            <form action="search.php" id="search-field" method="get">
+            <form action="index.php" id="search-field" method="get">
                 <label for="search">
-                    <input type="text" name="search" id="search" required/>
+                    <input type="text" name="tag" value="<?= isset($_GET['tag']) ? $_GET['tag'] : '' ?>" id="search" required/>
                 </label>
                 <input type="submit" id="search-button" value=""/>
             </form>

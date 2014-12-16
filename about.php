@@ -1,6 +1,6 @@
 <?php
-$title =  "Blog | About";
-require "inc/header.php";
+require "inc/struct.php";
+getHeader("Blog | About");
 ?>
 <h3 class="title">Our Team</h3>
 <div class="posts">
@@ -26,5 +26,5 @@ require "inc/header.php";
     </div>
 </div>
 <?php
-require "inc/Footer.php";
+getFooter();
 ?>

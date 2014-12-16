@@ -1,13 +1,13 @@
 <?php
-session_start();
+require '../inc/struct.php';
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === false) {
     header("Location: index.php");
 }
 $title = "Add Post";
 $styleFile = "../styles/style.css";
 $scriptFile = "../scripts/script.js";
-require '../inc/header.php';
 
+getHeader($title, $styleFile, $scriptFile);
 
 if ($_POST) {
     $db = $db->dbConnection;
@@ -88,4 +88,4 @@ if ($_POST && count($errors) > 0) {
         </form>
     </div>
 <?php
-require '../inc/footer.php';
+getFooter();
