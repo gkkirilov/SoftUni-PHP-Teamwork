@@ -145,4 +145,12 @@ class Database
         $query = $this->dbConnection->query('SELECT * FROM `post_comments` WHERE `postId` = '.$id);
         return $query->num_rows;
     }
+
+    public function updatePostById($id,$title, $text, $tags)
+    {
+        $title = $this->dbConnection->real_escape_string($title);
+        $text = $this->dbConnection->real_escape_string($text);
+        $tags = $this->dbConnection->real_escape_string($tags);
+        $this->dbConnection->query('UPDATE `posts` set `title` = "'.$title.'", `text` = "'.$text.'", `tags` = "'.$tags.'" WHERE `id` = "'.$id.'"');
+    }
 }
