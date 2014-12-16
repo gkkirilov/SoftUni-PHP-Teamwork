@@ -21,10 +21,8 @@
         }
     }
 
-    $styleFile = "../styles/style.css";
-    $scriptFile = "../scripts/script.js";
 
-    getHeader("Blog | Admin", $styleFile, $scriptFile);
+    getHeader("Blog | Admin", "../");
 
     if($_POST && (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === false)){
         echo '<div class="adminError">';

@@ -4,10 +4,8 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === false) {
     header("Location: index.php");
 }
 $title = "Add Post";
-$styleFile = "../styles/style.css";
-$scriptFile = "../scripts/script.js";
 
-getHeader($title, $styleFile, $scriptFile);
+getHeader($title, "../");
 
 if ($_POST) {
     $db = $db->dbConnection;
