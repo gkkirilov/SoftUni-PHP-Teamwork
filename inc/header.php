@@ -18,7 +18,7 @@ require "utils.php";
                 <ul>
                     <li><a href="<?= getSearchUrl('index.php') ?>">Home</a></li>
                     <li><a href="">Posts</a></li>
-                    <li><a href="">About us</a></li>
+                    <li><a href="<?= getSearchUrl('about.php') ?>">About us</a></li>
                     <li><a href="<?= getSearchUrl('contact.php')?>">Contact</a></li>
                 </ul>
             </nav>
@@ -29,7 +29,7 @@ require "utils.php";
                 <h4 id="search-title">Search by tag</h4>
                 <form action="search.php" id="search-field" method="get">
                     <label for="search">
-                        <input type="text" name="search" id="search"/>
+                        <input type="text" name="search" id="search" required/>
                     </label>
                     <input type="submit" id="search-button" value=""/>
                 </form>

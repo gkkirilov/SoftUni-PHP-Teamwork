@@ -31,7 +31,8 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `title` varchar(255) NOT NULL,
   `text` text NOT NULL,
   `time` datetime NOT NULL,
-  `tags` varchar(200) NOT NULL
+  `tags` varchar(200) NOT NULL,
+  `views` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --

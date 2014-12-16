@@ -31,7 +31,7 @@ class Database
         return $posts;
     }
 
-    public function  searchByTag($tag, $start = false, $show = false)
+    public function searchByTag($tag, $start = false, $show = false)
     {
         $limit = "";
         $posts = array();
@@ -45,5 +45,10 @@ class Database
             $posts[] = $row;
         }
         return $posts;
+    }
+
+    public function viewPost($id)
+    {
+        $query = $this->dbConnection->query("UPDATE posts SET `views`=(`views`+1) WHERE `id` = " . $id);
     }
 }

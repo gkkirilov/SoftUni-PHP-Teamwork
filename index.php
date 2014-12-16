@@ -19,7 +19,7 @@ if (isset($_GET["tag"])) {
         session_start();
         if (count($posts) > 0) {
             foreach ($posts as $row) {
-                $_SESSION['row'.$row['id']] = $row;
+                $_SESSION['row' . $row['id']] = $row;
                 echo '<div class="post" > ';
                 echo '<div class="date clear" > ' . date('d . m . Y H:i', $row['time']) . ' </div > ';
                 echo '<h3 class="postTitle" ><a href = "post.php?id=' . $row['id'] . '" >' . $row['title'] . ' </a ></h3 > ';
@@ -28,9 +28,10 @@ if (isset($_GET["tag"])) {
                 $tags = explode(',', $row['tags']);
                 for ($i = 0; $i < count($tags); $i++) {
                     $tag = trim($tags[$i]);
-                    echo '<a class="tag" href="' . getSearchUrl("index.php?tag=".$tag) . '">#' . $tag . ' </a>';
+                    echo '<a class="tag" href="' . getSearchUrl("index.php?tag=" . $tag) . '">#' . $tag . ' </a>';
                 }
                 echo '</div>';
+                echo "<div>Views: {$row['views']}</div>";
                 echo '</div>';
 
             }
