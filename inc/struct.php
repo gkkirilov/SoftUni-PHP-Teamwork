@@ -63,7 +63,7 @@ function getHeader($title, $path = "")
                 <?php
                 $posts = $db->getMostViewedPosts();
                 foreach ($posts as $row) {
-                    $mostViewedTitle = mb_strlen($row['title']) > 40 ? mb_substr($row['title'], 0, 40)."..." : $row['title'];
+                    $mostViewedTitle = mb_strlen($row['title']) > 15 ? mb_substr($row['title'], 0, 16)."..." : $row['title'];
                     echo '<li><a href="post.php?id=' . $row['id'] . '" title="' . $row['title'] . '">' . $mostViewedTitle .'</a></li>';
                 }
                 ?>
