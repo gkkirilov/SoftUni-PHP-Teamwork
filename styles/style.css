@@ -47,7 +47,10 @@ main {
     color: #999;
     margin: 5px 10px 0 0;
 }
-
+.post .aboutTitle{
+    color: #FFF;
+    font-size: 25px;
+}
 .post .postTitle a {
     font-size: 25px;
     color: #ff976b;
@@ -276,12 +279,15 @@ input, textarea {
 
 /* ABOUT US style BEGIN */
 body > div.wrapper.clear > main > div > div > div > img{
+    margin-top: 15px;
     float:right;
 
 }
 body > div.wrapper.clear > main > div > div > div > article{
     display: inline-block;
-    width: 370px;
+    width: 430px;
+    text-align: justify;
+    margin-top: 10px;
     height:200px;
 }
 
