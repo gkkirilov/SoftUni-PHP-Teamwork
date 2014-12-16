@@ -273,6 +273,24 @@ input, textarea {
 
 
 
+
+/* ABOUT US style BEGIN */
+body > div.wrapper.clear > main > div > div > div > img{
+    float:right;
+
+}
+body > div.wrapper.clear > main > div > div > div > article{
+    display: inline-block;
+    width: 370px;
+    height:200px;
+}
+
+/* ABOUT US style END */
+
+
+
+
+
 /* Tags filter style BEGIN */
 .tags {
     margin-top: 25px;
@@ -345,5 +363,6 @@ footer {
     height: 200px;
     background-color: rgba(51, 51, 51, 0.18);
 }
+
 
 /* Footer style END */
