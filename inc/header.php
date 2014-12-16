@@ -2,7 +2,7 @@
 date_default_timezone_set("Europe/Sofia");
 mb_internal_encoding("utf-8");
 require "utils.php";
-require "inc/Database.php";
+require "Database.php";
 $db = new Database();
 $posts = $db->getMostViewedPosts();
 ?>
