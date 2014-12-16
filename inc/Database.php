@@ -52,8 +52,9 @@ class Database
         $this->dbConnection->query("UPDATE posts SET `views`=(`views`+1) WHERE `id` = " . $id);
     }
 
-    public function getPostViews($id){
-        $query = $this->dbConnection->query('SELECT `views` FROM  `posts` WHERE `id` = '.$id);
+    public function getPostViews($id)
+    {
+        $query = $this->dbConnection->query('SELECT `views` FROM  `posts` WHERE `id` = ' . $id);
         return $query->fetch_assoc()['views'];
     }
 
@@ -68,10 +69,36 @@ class Database
 
     public function getPostById($id)
     {
-        if($id <= 0){
+        if ($id <= 0) {
             return null;
         }
-        $query = $this->dbConnection->query('SELECT * FROM `posts` WHERE `id` = '.$id.' limit 0,1');
+        $query = $this->dbConnection->query('SELECT * FROM `posts` WHERE `id` = ' . $id . ' limit 0,1');
         return $query->fetch_assoc();
+    }
+
+    public function getMostPopularTags($count = 5)
+    {
+        $temp = array();
+        $query = $this->dbConnection->query('SELECT `tags` FROM `posts`');
+        while ($row = $query->fetch_assoc()) {
+            array_push($temp, $row['tags']);
+        }
+
+        $tags = array();
+        for ($i = 0; $i < count($temp); $i++) {
+            $tempTags = explode(',', $temp[$i]);
+            for ($j = 0; $j < count($tempTags); $j++) {
+                $tag = trim($tempTags[$j]);
+                array_push($tags, $tag);
+            }
+        }
+
+        $tags = array_count_values($tags);
+        arsort($tags);
+
+        $tags = array_slice($tags, 0, $count, true);
+
+        return $tags;
+
     }
 }

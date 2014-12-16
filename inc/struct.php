@@ -45,6 +45,16 @@ function getHeader($title, $styleFile = null, $scriptFile = null)
             </form>
         </div>
         <div>
+            <h4 id="search-title">Most Popular Tags</h4>
+            <ul>
+                <?php
+                $tags = array_keys($db->getMostPopularTags());
+                foreach ($tags as $tag)
+                    echo "<li><a href='" . getSearchUrl("index.php?tag=" . $tag) . "'>#$tag</a></li>";
+                ?>
+            </ul>
+        </div>
+        <div>
             <h4 id="search-title">Most Viewed</h4>
             <ul>
                 <?php
