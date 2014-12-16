@@ -410,6 +410,61 @@ footer {
     height: 200px;
     background-color: rgba(51, 51, 51, 0.18);
 }
-
-
 /* Footer style END */
+
+
+
+/* Comments section style BEGIN */
+#leave-comment {
+    width: 232px;
+}
+
+#leave-comment-title {
+    color: #ff976b;
+}
+
+.leave-comment-input {
+    display: block;
+}
+
+.leave-comment-label {
+    display: block;
+    color: #ffc5a4;
+    margin-top: 10px;
+}
+
+textarea.leave-comment-input {
+    width: 229px;
+    height: 200px;
+    resize: none;
+}
+
+#captcha-input {
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    height: 33px;
+    width: 131px;
+    margin-left: -5px;
+    text-align: center;
+}
+
+#captcha {
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#add-comment {
+    display: block;
+    margin: 10px auto 10px;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#add-comment:hover {
+    cursor: pointer;
+}
+/* Comments section style END */

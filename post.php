@@ -71,17 +71,26 @@ if($post != null){
                     }
                 }
             ?>
-            <form action="" method="post">
-                <label for="nicknameInput">Nickname:</label>
-                <input type="text" id="nicknameInput" value="<?= isset($_SESSION['name']) ? $_SESSION['name'] : '' ?>" name="name" />
-                <label for="emailInput">Email*: </label>
-                <input type="text" id="emailInput" value="<?= isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" name="email" />
-                <label for="commentTextarea">Comment: </label>
-                <textarea name="comment" id="commentTextarea" ><?= isset($comment) ? $comment : ''?></textarea><br/>
-                <input type="text" name="captcha" />
-                <img src="captcha.php" alt="captcha" />
+            <form action="" method="post" id="leave-comment">
+                <h2 id="leave-comment-title">Leave a Reply</h2>
+                <label for="nicknameInput"><span class="leave-comment-label">Nickname:</span>
+                    <input type="text" id="nicknameInput" class="leave-comment-input"
+                           value="<?= isset($_SESSION['name']) ? $_SESSION['name'] : '' ?>" name="name" />
+                </label>
+                <label for="emailInput"><span class="leave-comment-label">Email*:</span>
+                    <input type="text" id="emailInput"  class="leave-comment-input"
+                           value="<?= isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" name="email" />
+                </label>
+                <label for="commentTextarea"><span class="leave-comment-label">Comment:</span>
+                    <textarea name="comment"  class="leave-comment-input"
+                              id="commentTextarea" ><?= isset($comment) ? $comment : ''?></textarea>
+                </label>
+                <label for="captcha">
+                    <img src="captcha.php" alt="captcha" id="captcha"/>
+                    <input type="text" name="captcha" id="captcha-input" placeholder="Enter the code"/>
+                </label>
                 <input type="hidden" name="commentForm"/>
-                <input type="submit" value="Add comment" />
+                <input type="submit" value="Add comment" id="add-comment" />
             </form>
         </div>
         <div class="comments">
