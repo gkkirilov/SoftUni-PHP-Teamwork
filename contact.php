@@ -23,20 +23,20 @@ getHeader("Blog | Contact");
 
     <?php
     if (isset($_POST['send'])) {
-        $subject = $_POST['subject'];
+        $subject = trim($_POST['subject']);
         $from = $_POST['address'];
-        $question = $_POST['question'];
+        $question = trim($_POST['question']);
 
-        if ($subject == '') {
+        if (mb_strlen($subject) == 0) {
             echo ('<p class="error">Enter a subject!</p>');
         } elseif (!filter_var($from, FILTER_VALIDATE_EMAIL)) {
             echo ('<p class="error">Invalid email address!</p>');
-        } elseif ($question == '') {
+        } elseif (mb_strlen($question) < 0) {
             echo ('<p class="error">Enter a question!</p>');
         } else {
             $question .= "\n".'The message was sent from: '. $from;
             $question = wordwrap($question, 50, "<br/>\r\n");
-            mail('contacts@our.blog', $subject, $question);
+            mail('rqe04310@piloq.com', $subject, $question);
             echo ('<p class="success">Your message was sent!</p>');
         }
     }
