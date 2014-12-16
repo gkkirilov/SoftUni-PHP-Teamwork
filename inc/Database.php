@@ -101,4 +101,35 @@ class Database
         return $tags;
 
     }
+
+
+    public function addPostComment($id, $name, $email, $comment){
+        $name = $this->dbConnection->real_escape_string($name);
+        $email = $this->dbConnection->real_escape_string($email);
+        $comment = $this->dbConnection->real_escape_string($comment);
+        $this->dbConnection->query('INSERT INTO `post_comments`(`postId`,`name`,`email`,`comment`,`time`) VALUES ('.$id.',"'.$name.'","'.$email.'","'.$comment.'", '.time().')  ');
+        if($this->dbConnection->error){
+            return false;
+        }
+        return true;
+    }
+
+    public function getPostCommentsById($id, $start = false, $show = false){
+        $limit = "";
+        $comments = array();
+        if ($start !== false && $show !== false) {
+            $limit = " limit " . $start . ", " . $show;
+        }
+        $query = $this->dbConnection->query('SELECT * FROM `post_comments` WHERE `postId` = '.$id.' ORDER BY `time` desc '.$limit);
+//        echo $this->dbConnection->error;
+        while($row = $query->fetch_assoc()){
+            $comments[] = $row;
+        }
+        return $comments;
+    }
+
+    public function getCountPostCommentsById($id){
+        $query = $this->dbConnection->query('SELECT * FROM `post_comments` WHERE `postId` = '.$id);
+        return $query->num_rows;
+    }
 }
