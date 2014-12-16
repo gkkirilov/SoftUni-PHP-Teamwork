@@ -50,8 +50,10 @@ function getHeader($title, $path = "")
             <ul>
                 <?php
                 $tags = array_keys($db->getMostPopularTags());
-                foreach ($tags as $tag)
-                    echo "<li><a href='" . getSearchUrl("index.php?tag=" . $tag) . "'>#$tag</a></li>";
+                foreach ($tags as $tag) {
+                    $mostPopularTag = mb_strlen($tag) > 16 ? mb_substr($tag, 0, 16)."..." : $tag;
+                    echo "<li><a href='" . getSearchUrl("index.php?tag=" . $tag) . "'>#$mostPopularTag</a></li>";
+                }
                 ?>
             </ul>
         </div>
@@ -61,7 +63,8 @@ function getHeader($title, $path = "")
                 <?php
                 $posts = $db->getMostViewedPosts();
                 foreach ($posts as $row) {
-                    echo '<li><a href="post.php?id=' . $row['id'] . '" title="' . $row['title'] . '">' . mb_substr($row['title'], 0, 50) . '...</a></li>';
+                    $mostViewedTitle = mb_strlen($row['title']) > 40 ? mb_substr($row['title'], 0, 40)."..." : $row['title'];
+                    echo '<li><a href="post.php?id=' . $row['id'] . '" title="' . $row['title'] . '">' . $mostViewedTitle .'</a></li>';
                 }
                 ?>
             </ul>
@@ -72,7 +75,8 @@ function getHeader($title, $path = "")
                 <?php
                 $posts = $db->getAllPosts(0, 5);
                 foreach ($posts as $row) {
-                    echo '<li><a href="post.php?id=' . $row['id'] . '" title="' . $row['title'] . '">' . mb_substr($row['title'], 0, 50) . '...</a></li>';
+                    $mostRecentTitle = mb_strlen($row['title']) > 40 ? mb_substr($row['title'], 0, 40)."..." : $row['title'];
+                    echo '<li><a href="post.php?id=' . $row['id'] . '" title="' . $row['title'] . '">' . $mostRecentTitle. '</a></li>';
                 }
                 ?>
             </ul>
