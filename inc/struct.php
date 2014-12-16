@@ -25,13 +25,13 @@ function getHeader($title, $styleFile = null, $scriptFile = null)
     <header>
         <nav>
             <ul>
-                <li><a href="<?= getSearchUrl('index.php') ?>">Home</a></li>
-                <li><a href="">Posts</a></li>
+                <li><a href="<?= getSearchUrl('home.php') ?>">Home</a></li>
+                <li><a href="<?= getSearchUrl('posts.php') ?>">Posts</a></li>
                 <li><a href="<?= getSearchUrl('about.php') ?>">About us</a></li>
                 <li><a href="<?= getSearchUrl('contact.php') ?>">Contact</a></li>
             </ul>
         </nav>
-        <h1><a href="index.php">Blog</a></h1>
+        <h1><a href="home.php">Blog</a></h1>
     </header>
     <aside>
         <div class="searchBar">
