@@ -1,6 +1,4 @@
 <?php
-require "inc/Database.php";
-$db = new Database();
 $title =  "Blog | Contact";
 require "inc/header.php";
 ?>

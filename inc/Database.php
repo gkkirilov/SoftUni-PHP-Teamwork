@@ -51,4 +51,13 @@ class Database
     {
         $query = $this->dbConnection->query("UPDATE posts SET `views`=(`views`+1) WHERE `id` = " . $id);
     }
+
+    public function getMostViewedPosts($count = 5)
+    {
+        $query = $this->dbConnection->query('SELECT * FROM `posts` ORDER BY `views` desc limit ' . $count);
+        while ($row = $query->fetch_assoc()) {
+            $posts[] = $row;
+        }
+        return $posts;
+    }
 }

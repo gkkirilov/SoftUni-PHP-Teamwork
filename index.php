@@ -1,9 +1,6 @@
 <?php
-require "inc/Database.php";
-$db = new Database();
 $title = "Blog | Home";
 require "inc/header.php";
-
 $posts = array();
 
 if (isset($_GET["tag"])) {

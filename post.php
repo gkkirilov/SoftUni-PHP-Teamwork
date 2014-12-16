@@ -1,6 +1,4 @@
 <?php
-require "inc/Database.php";
-$db = new Database();
 $title = "Blog | Posts";
 $styleFile = "styles/style.css";
 $scriptFile = "scripts/script.js";
@@ -42,6 +40,7 @@ for ($i = 0; $i < count($tags); $i++) {
     echo '<a class="tag" href="' . getSearchUrl("index.php?tag=" . $tag) . '">#' . $tag . ' </a>';
 }
 echo '</div>';
+echo "<div>Views: {$row['views']}</div>";
 echo '</div>';
 ?>
 
