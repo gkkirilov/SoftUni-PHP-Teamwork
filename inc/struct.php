@@ -92,7 +92,27 @@ function getFooter()
     </main>
     </div>
     <footer>
-
+        <div id="footerNav">
+            <article id="navigation">
+                <nav>
+                    <ul>
+                        <li><a href="<?= getSearchUrl('home.php') ?>">Home</a></li>
+                        <li><a href="<?= getSearchUrl('posts.php') ?>">Posts</a></li>
+                        <li><a href="<?= getSearchUrl('about.php') ?>">About us</a></li>
+                        <li><a href="<?= getSearchUrl('contact.php') ?>">Contact</a></li>
+                    </ul>
+                </nav>
+            </article>
+            <article id="copyRight">
+                <span>&#0169; 2014-2015 - Blog. All Rights Reserved.</span>
+            </article>
+            <article id="facebook">
+                <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FSoftwareUniversity%3Ffref%3Dts&amp;width=300&amp;height=175&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true"
+                             scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:175px;"
+                             allowTransparency="true">
+                </iframe>
+            </article>
+        </div>
     </footer>
     </body>
     </html>
