@@ -4,7 +4,7 @@ require "inc/header.php";
 ?>
     <section id="contact-form">
         <form action="contact.php" method="post">
-            <h3 id="title">Contact Us</h3>
+            <h3 class="title">Contact Us</h3>
             <label for="contact-subject">
                 <input type="text" id="contact-subject" name="subject" placeholder="Subject"/>
             </label>
