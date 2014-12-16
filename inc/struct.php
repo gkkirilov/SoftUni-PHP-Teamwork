@@ -7,7 +7,7 @@ require "Database.php";
 $db = new Database();
 $posts = $db->getMostViewedPosts();
 
-function getHeader($title, $styleFile = null, $scriptFile = null)
+function getHeader($title, $path = "")
 {
     $db = new Database();
     ?>
@@ -16,8 +16,9 @@ function getHeader($title, $styleFile = null, $scriptFile = null)
     <head>
         <meta charset="UTF-8">
         <title><?= $title ?></title>
-        <link rel="stylesheet" href="<?= $styleFile == null ? 'styles/style.css' : $styleFile; ?>"/>
-        <script src="<?= $scriptFile == null ? 'scripts/script.js' : $scriptFile; ?>"></script>
+        <link rel="stylesheet" href="<?= $path ?>styles/style.css"/>
+        <script src="<?= $path ?>scripts/script.js"></script>
+        <script src="<?= $path ?>scripts/jquery-1.7.2.min.js"></script>
     </head>
     <body>
     <div class="wrapper clear">
