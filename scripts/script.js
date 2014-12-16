@@ -50,10 +50,11 @@ function loadPosts(page,show, pages){
             date.setTime(parseInt(row.time)*1000);
             date = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes();
             var title = row.title.length > 50 ? row.title.substr(0,50) + "..." : row.title;
+            var text = row.text.length > 300 ? row.text.substr(0,300) + "..." : row.text;
             var postDiv = '<div class="post">';
             postDiv += '<div class="date clear" > ' + date + ' </div >';
             postDiv += '<h3 class="postTitle" ><a href = "post.php?id=' + row.id + '" >' + title + ' </a></h3>';
-            postDiv += '<div class="postContent" > ' + row.text + ' </div >';
+            postDiv += '<div class="postContent" > ' + text + ' </div >';
             postDiv += '<div class="tags" > Tags: ';
             row.tags.split(',').forEach(function(tag){
                 tag = tag.trim();

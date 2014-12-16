@@ -1,0 +1,5 @@
+1. search by many tags
+2. Admin Panel
+	-Editing posts
+	-deleting posts
+	-delete comments

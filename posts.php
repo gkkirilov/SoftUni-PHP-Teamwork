@@ -6,14 +6,30 @@ $posts = array();
 getHeader("Blog | Post");
 
 $postsPerPage = 10;
-$postsCnt =  $db->getCountAllPosts();
-$pages = ceil($postsCnt/$postsPerPage);
+$pages = 0;
 
 if (isset($_GET["tag"])) {
-    $tag = strip_tags($_GET["tag"]);
-    $posts = $db->searchByTag($tag);
-    echo ' <div class="filter" >Posts filtered by tag: ' . $tag . '<a href="index.php">b</a></div > ';
+    $tags = strip_tags($_GET["tag"]);
+    $posts = $db->searchByTags($tags);
+    $splittedTags = explode(' ',$tags);
+    usort($posts, function ($a,$b) use($splittedTags){
+        $firstCnt = 0;
+        $secondCnt = 0;
+        foreach($splittedTags as $row){
+            $row = strtolower(trim($row));
+            if(preg_match('/'.$row.'/', strtolower($a['tags']))){
+                $firstCnt++;
+            }
+            if(preg_match('/'.$row.'/', strtolower($b['tags']))){
+                $secondCnt++;
+            }
+        }
+        return $secondCnt-$firstCnt;
+    });
+    echo ' <div class="filter" >Posts filtered by tag: ' . $tags . '<a href="posts.php">b</a></div > ';
 } else {
+    $postsCnt =  $db->getCountAllPosts();
+    $pages = ceil($postsCnt/$postsPerPage);
     $posts = $db->getAllPosts(0, $postsPerPage);
 }
 ?>

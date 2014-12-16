@@ -7,7 +7,7 @@ getHeader("Blog | Home");
 
 if (isset($_GET["tag"])) {
     $tag = strip_tags($_GET["tag"]);
-    $posts = $db->searchByTag($tag);
+    $posts = $db->searchByTags($tag);
     echo ' <div class="filter" >Posts filtered by tag: ' . $tag . '<a href="index.php">b</a></div > ';
 } else {
     $posts = $db->getAllPosts();

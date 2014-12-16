@@ -36,15 +36,23 @@ class Database
         return $query->num_rows;
     }
 
-    public function searchByTag($tag, $start = false, $show = false)
+    public function searchByTags($tags, $start = false, $show = false)
     {
         $limit = "";
         $posts = array();
         if ($start !== false && $show !== false) {
             $limit = " limit " . $start . ", " . $show;
         }
-
-        $sql = "SELECT * FROM `posts` WHERE LOWER(`tags`) LIKE  LOWER ('%" . $tag . "%') ORDER BY time desc " . $limit;
+        $tags = explode(" ",$tags);
+        foreach($tags as $tag){
+            $tag = trim($tag);
+            if(isset($where)){
+                $where .= " OR LOWER(`tags`) LIKE  LOWER ('%" . $tag . "%')";
+            }else{
+                $where = "WHERE LOWER(`tags`) LIKE  LOWER ('%" . $tag . "%')";
+            }
+        }
+        $sql = "SELECT * FROM `posts` ".$where." ORDER BY time desc " . $limit;
         $query = $this->dbConnection->query($sql);
         while ($row = $query->fetch_assoc()) {
             $posts[] = $row;
