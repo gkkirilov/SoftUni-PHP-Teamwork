@@ -5,12 +5,16 @@ $posts = array();
 
 getHeader("Blog | Post");
 
+$postsPerPage = 10;
+$postsCnt =  $db->getCountAllPosts();
+$pages = ceil($postsCnt/$postsPerPage);
+
 if (isset($_GET["tag"])) {
     $tag = strip_tags($_GET["tag"]);
     $posts = $db->searchByTag($tag);
     echo ' <div class="filter" >Posts filtered by tag: ' . $tag . '<a href="index.php">b</a></div > ';
 } else {
-    $posts = $db->getAllPosts();
+    $posts = $db->getAllPosts(0, $postsPerPage);
 }
 ?>
     <div class="posts">
@@ -39,6 +43,17 @@ if (isset($_GET["tag"])) {
         }
         ?>
     </div>
+    <div class="pages">
+    <?php
+    for($page = 1;$page <= $pages; $page++){
+        if($page != 1){
+            echo '<a href="javascript: loadPosts('.$page.','.$postsPerPage.','.$pages.');" >'.$page.'</a> | ';
+        }else{
+            echo '<span>'.$page.'</span> | ';
+        }
+    }
+    ?>
+</div>
 <?php
 
 getFooter();

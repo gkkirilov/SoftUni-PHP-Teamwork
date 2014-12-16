@@ -30,6 +30,11 @@ class Database
         }
         return $posts;
     }
+    public function getCountAllPosts()
+    {
+        $query = $this->dbConnection->query('SELECT * FROM `posts`');
+        return $query->num_rows;
+    }
 
     public function searchByTag($tag, $start = false, $show = false)
     {
