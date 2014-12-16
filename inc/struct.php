@@ -10,7 +10,6 @@ $posts = $db->getMostViewedPosts();
 function getHeader($title, $styleFile = null, $scriptFile = null)
 {
     $db = new Database();
-    $posts = $db->getMostViewedPosts();
     ?>
     <!doctype html>
     <html lang="en">
@@ -39,7 +38,8 @@ function getHeader($title, $styleFile = null, $scriptFile = null)
 
             <form action="index.php" id="search-field" method="get">
                 <label for="search">
-                    <input type="text" name="tag" value="<?= isset($_GET['tag']) ? $_GET['tag'] : '' ?>" id="search" required/>
+                    <input type="text" name="tag" value="<?= isset($_GET['tag']) ? $_GET['tag'] : '' ?>" id="search"
+                           required/>
                 </label>
                 <input type="submit" id="search-button" value=""/>
             </form>
@@ -48,6 +48,18 @@ function getHeader($title, $styleFile = null, $scriptFile = null)
             <h4 id="search-title">Most Viewed</h4>
             <ul>
                 <?php
+                $posts = $db->getMostViewedPosts();
+                foreach ($posts as $row) {
+                    echo '<li><a href="post.php?id=' . $row['id'] . '" title="' . $row['title'] . '">' . mb_substr($row['title'], 0, 50) . '...</a></li>';
+                }
+                ?>
+            </ul>
+        </div>
+        <div>
+            <h4 id="search-title">Most Recent</h4>
+            <ul>
+                <?php
+                $posts = $db->getAllPosts(0, 5);
                 foreach ($posts as $row) {
                     echo '<li><a href="post.php?id=' . $row['id'] . '" title="' . $row['title'] . '">' . mb_substr($row['title'], 0, 50) . '...</a></li>';
                 }
