@@ -49,15 +49,29 @@ class Database
 
     public function viewPost($id)
     {
-        $query = $this->dbConnection->query("UPDATE posts SET `views`=(`views`+1) WHERE `id` = " . $id);
+        $this->dbConnection->query("UPDATE posts SET `views`=(`views`+1) WHERE `id` = " . $id);
+    }
+
+    public function getPostViews($id){
+        $query = $this->dbConnection->query('SELECT `views` FROM  `posts` WHERE `id` = '.$id);
+        return $query->fetch_assoc()['views'];
     }
 
     public function getMostViewedPosts($count = 5)
     {
-        $query = $this->dbConnection->query('SELECT * FROM `posts` ORDER BY `views` desc limit ' . $count);
+        $query = $this->dbConnection->query('SELECT * FROM `posts` ORDER BY `views` desc limit 0, ' . $count);
         while ($row = $query->fetch_assoc()) {
             $posts[] = $row;
         }
         return $posts;
+    }
+
+    public function getPostById($id)
+    {
+        if($id <= 0){
+            return null;
+        }
+        $query = $this->dbConnection->query('SELECT * FROM `posts` WHERE `id` = '.$id.' limit 0,1');
+        return $query->fetch_assoc();
     }
 }

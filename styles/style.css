@@ -52,6 +52,10 @@ main {
     font-size: 25px;
     color: #ff976b;
 }
+.post .postTitle {
+    font-size: 25px;
+    color: #ff976b;
+}
 
 .post .postTitle a:hover {
     font-size: 25px;

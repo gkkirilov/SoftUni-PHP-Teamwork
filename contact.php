@@ -1,6 +1,7 @@
 <?php
-$title =  "Blog | Contact";
-require "inc/header.php";
+
+require "inc/struct.php";
+getHeader("Blog | Contact");
 ?>
     <section id="contact-form">
         <form action="contact.php" method="post">
@@ -39,8 +40,5 @@ require "inc/header.php";
             echo ('<p class="success">Your message was sent!</p>');
         }
     }
-    ?>
 
-<?php
-require "inc/Footer.php";
-?>
+getFooter();
