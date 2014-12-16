@@ -415,12 +415,21 @@ footer {
 
 
 /* Comments section style BEGIN */
+#add-comment-section {
+    border-bottom: 3px double #666;
+}
+
 #leave-comment {
     width: 232px;
 }
 
 #leave-comment-title {
     color: #ff976b;
+}
+
+#leave-comment-required {
+    color: #ffc5a4;
+    font-style: italic;
 }
 
 .leave-comment-input {
@@ -457,14 +466,38 @@ textarea.leave-comment-input {
 
 #add-comment {
     display: block;
-    margin: 10px auto 10px;
-    width: 100px;
+    margin: 10px auto 20px;
+    width: 232px;
     height: 30px;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 #add-comment:hover {
     cursor: pointer;
+}
+
+#add-comment:focus {
+    outline: 1px solid #ff976b;
+}
+
+.comments {
+    margin-top: 20px;
+}
+
+.comment-date {
+    color: #ff976b;
+    font-style: italic;
+}
+
+.comment-name {
+    color: #EEEEEE;
+    display: block;
+}
+
+.comment-text {
+    display: block;
+    color: #a1a1a1;
+    margin-top: -13px;
 }
 /* Comments section style END */
