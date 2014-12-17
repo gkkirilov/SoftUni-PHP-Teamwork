@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 });
 
+
+
+
 function loadPostComments(page, postId, show, pages,isLogged) {
     $('.comments').html("Loading...");
     $.ajax({
@@ -12,18 +15,22 @@ function loadPostComments(page, postId, show, pages,isLogged) {
     }).done(function (result) {
         result = JSON.parse(result);
         $('.comments').html("");
-        result.forEach(function (row) {
-            var date = new Date();
-            date.setTime(parseInt(row.time) * 1000);
-            date = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes();
-            var commentDiv = '<div id="comment'+row.id+'" class="comment">';
-			commentDiv +=  "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment(" + row.id + ", " + row.postId +", " + page + ", " + show +", " + isLogged + ");'>b<span class='removeComment'>Remove comment</span></a></div>";
-            commentDiv +='<span class="comment-date">' + date + "</span></br>";
-            commentDiv +='<span class="comment-name">'+row.name + "</span><br/>";
-            commentDiv +='<span class="comment-text">'+ row.comment;
-            commentDiv += "</span></div>";
-            $('.comments').append(commentDiv);
-        });
+		if(result.length > 0){
+		    result.forEach(function (row) {
+				var date = new Date();
+				date.setTime(parseInt(row.time) * 1000);
+				date = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes();
+				var commentDiv = '<div id="comment'+row.id+'" class="comment">';
+				commentDiv +=  "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment(" + row.id + ", " + row.postId +", " + page + ", " + show +", " + isLogged + ");'>b<span class='removeComment'>Remove comment</span></a></div>";
+				commentDiv +='<span class="comment-date">' + date + "</span></br>";
+				commentDiv +='<span class="comment-name">'+row.name + "</span><br/>";
+				commentDiv +='<span class="comment-text">'+ row.comment;
+				commentDiv += "</span></div>";
+				$('.comments').append(commentDiv);
+			});
+		}else{
+			$('.comments').html('<span id="noComment">No comments.</span>');
+		}
         var pagesDiv = '';
         for (var i = 1; i <= pages; i++) {
             if (page != i) {

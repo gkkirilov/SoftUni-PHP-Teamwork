@@ -137,10 +137,11 @@ class Database
             $limit = " limit " . $start . ", " . $show;
         }
         $query = $this->dbConnection->query('SELECT * FROM `post_comments` WHERE `postId` = ' . $id . ' ORDER BY `time` desc ' . $limit);
-//        echo $this->dbConnection->error;
-        while ($row = $query->fetch_assoc()) {
-            $comments[] = $row;
-        }
+		if($query){
+		  while ($row = $query->fetch_assoc()) {
+				$comments[] = $row;
+			}
+		}
         return $comments;
     }
 

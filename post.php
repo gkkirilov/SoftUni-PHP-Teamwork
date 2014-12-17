@@ -78,25 +78,29 @@ if ($post != null) {
             <form action="" method="post" id="leave-comment">
                 <h2 id="leave-comment-title">Leave a Reply</h2>
                 <h5 id="leave-comment-required">Required fields are marked *</h5>
-                <label for="nicknameInput"><span class="leave-comment-label">Nickname*:</span>
-                    <input type="text" id="nicknameInput" class="leave-comment-input"
-                           value="<?= isset($_SESSION['name']) ? $_SESSION['name'] : '' ?>" name="name"/>
-                </label>
-                <label for="emailInput"><span class="leave-comment-label">Email:</span>
-                    <input type="text" id="emailInput" class="leave-comment-input"
-                           value="<?= isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" name="email"/>
-                </label>
+                <span class="nicknameEmail">
+					<label for="nicknameInput"><span class="leave-comment-label">Nickname*:</span>
+						<input type="text" id="nicknameInput" class="leave-comment-input"
+							   value="<?= isset($_SESSION['name']) ? $_SESSION['name'] : '' ?>" name="name"/>
+					</label>
+					<label for="emailInput"><span class="leave-comment-label">Email:</span>
+						<input type="text" id="emailInput" class="leave-comment-input"
+							   value="<?= isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" name="email"/>
+					</label>	
+				</span>
                 <label for="commentTextarea"><span class="leave-comment-label">Comment*:</span>
                         <textarea name="comment" class="leave-comment-input"
                                   id="commentTextarea"><?= isset($comment) ? $comment : '' ?></textarea>
                 </label>
-                <label for="captcha">
+                <span class="captchaSubmit" >
+				<label for="captcha">
                     <img src="captcha.php" alt="captcha" id="captcha"/>
                     <input type="text" name="captcha" id="captcha-input" placeholder="Enter the code"/>
                 </label>
                 <input type="hidden" name="commentForm"/>
-                <input type="submit" value="Add comment" id="add-comment"/>
-            </form>
+                <input type="submit" value="Add comment" id="add-comment"/>	
+				</span>
+            </form><br/>
         </section>
     </div>
     <div class="comments">
@@ -105,7 +109,7 @@ if ($post != null) {
 	</script>
         <?php
         if (count($comments) == 0) {
-            echo '<span id="noComment">No data.</span>';
+            echo '<span id="noComment">No comments.</span>';
         } else {
             foreach ($comments as $comment) {
 

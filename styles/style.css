@@ -35,7 +35,9 @@ button:hover {
     width: 900px;
     margin: 0 auto;
 }
-
+#noComment{
+color: #ff976b;
+}
 .post {
     margin-bottom: 20px;
     color: #ccc;
