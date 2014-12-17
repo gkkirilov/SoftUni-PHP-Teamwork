@@ -171,4 +171,16 @@ class Database
         $sql = "DELETE FROM `posts` WHERE `id` = $id";
         $query = $this->dbConnection->query($sql);
     }
+
+    public function isVoted($postId){
+        $check = $this->dbConnection->query('SELECT * FROM `post_rating` WHERE `postId` = "'.$postId.'" and `ip` = "'.$_SERVER['REMOTE_ADDR'].'"');
+        return $check->num_rows;
+    }
+
+	public function votePost($postId, $vote){
+		if(!$this->isVoted($postId)){
+            $this->dbConnection->query('INSERT INTO `post_rating`(`postId`,`vote`,`ip`) VALUES ("'.$postId.'", "'.$vote.'", "'.$_SERVER['REMOTE_ADDR'].'")');
+        }
+	}
+
 }

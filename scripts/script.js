@@ -72,7 +72,7 @@ function loadPosts(page, show, pages) {
                 postDiv += '<a class="tag" href="index.php?tag=' + tag + '">#' + tag + ' </a> ';
             });
             postDiv += '</div>';
-            postDiv += '<div>Views: ' + row.views + '</div>';
+            postDiv += '<div>Views: ' + row.views + '<span class="commentsCnt">Comments: ' + row.commentsCnt +'</span></div>';
             postDiv += "</div><br/>";
             $('.posts').append(postDiv);
         });
@@ -99,5 +99,16 @@ function removeComment(id, postId, page, show, isLogged) {
 		setTimeout(function(){loadPostComments(page, postId, show, pages, isLogged);}, 500);
     }).fail(function(){
         alert("fail");
+    });
+}
+
+
+function vote(postId,vote){
+    $.ajax({
+        url: "inc/vote.php?postId=" + postId + "&vote=" + vote
+    }).done(function(){
+        $('.vote').hide();
+    }).error(function (){
+        alert("Error");
     });
 }

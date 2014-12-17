@@ -4,6 +4,7 @@ $styleFile = "styles/style.css";
 $scriptFile = "scripts/script.js";
 require "inc/struct.php";
 
+
 $id = (int)$_GET['id'];
 $post = $db->getPostById($id);
 $db->viewPost($id);
@@ -17,9 +18,9 @@ if (isset($_POST['commentForm'])) {
     $captcha = trim($_POST['captcha']);
     $_SESSION['name'] = $name;
     $_SESSION['email'] = $email;
-   // if(!password_verify($captcha, $_SESSION['captcha']) || strlen($_SESSION['captcha']) == 0){
-       // $commentErrors[] = "Wrong validation code.";
-   // }
+    if(!password_verify($captcha, $_SESSION['captcha']) || strlen($_SESSION['captcha']) == 0){
+        $commentErrors[] = "Wrong validation code.";
+    }
     if (strlen($email) > 0 && !filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($email) > 255) {
         $commentErrors[] = "Invalid email.";
     }
@@ -63,7 +64,12 @@ if ($post != null) {
         echo '<a class="tag" href="' . getSearchUrl("posts.php?tag=" . $tag) . '">#' . $tag . ' </a>';
     }
     echo '</div>';
-    echo '<div class="bottomArticle"><span class="views" >Views: ' . $views . '</span><span class="" ></div>';
+    echo '<div class="bottomArticle"><span class="views" >Views: ' . $views . '</span>';
+
+    if(!$db->isVoted($id)){
+        echo '<span class="vote"><a href="javascript: vote('.$id.',\'up\');" class="voteUp" ></a> <a href="javascript: vote('.$id.',\'down\');" class="voteDown" ></a></span>';
+    }
+    echo '</div>';
     echo '</div>';
     ?>
     <div class="writeComment">
