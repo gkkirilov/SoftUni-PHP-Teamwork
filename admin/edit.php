@@ -87,8 +87,11 @@ if ($_POST && count($errors) > 0) {
             <input type="text" id="tags" placeholder="Enter tags"
                    value="<?= isset($artTags) ? $artTags : $post['tags'] ?>"
                    name="tags"/>
-            <button name="edit" type="submit">Edit</button>
-            <button name="remove" type="submit">Remove</button>
+
+            <div class="wrapper-buttons">
+                <button name="edit" type="submit">Edit</button>
+                <button name="remove" type="submit">Remove</button>
+            </div>
         </form>
     </div>
 <?php
