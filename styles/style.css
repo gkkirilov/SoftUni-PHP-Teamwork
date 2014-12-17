@@ -124,6 +124,7 @@ footer > div {
     padding: 10px 15px;
     font-size: 20px;
     border-radius: 20px;
+    color:#989898;
 }
 
 #navigation > nav ul li a:hover {
