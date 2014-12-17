@@ -6,6 +6,7 @@
 }
 
 html, body {
+    height: 100%;
     background: #eee;
 }
 
@@ -16,10 +17,18 @@ html, body {
 
 /* Main header style BEGIN */
 .wrapper {
+    min-height: 100%;
+    margin-bottom: -68px;
     width: 900px;
-    margin: 0 auto;
+    margin: 0 auto -68px auto;
 }
-
+.wrapper:after{
+    content: "";
+    display: block;
+}
+footer, .wrapper:after {
+    height: 68px;
+}
 main {
     width: 600px;
     background: #333;
