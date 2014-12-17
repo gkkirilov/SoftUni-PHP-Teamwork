@@ -73,7 +73,7 @@ color: #ff976b;
     color: #FFF;
     font-size: 25px;
 }
-.post .tags a{
+.post .tags a, .filter, .postTitle{
     word-wrap: break-word;
 }
 
@@ -82,7 +82,7 @@ color: #ff976b;
     word-wrap: break-word;
 }
 
-.post .postTitle a {
+.post .postTitle a{
     font-size: 25px;
     color: #ff976b;
 }

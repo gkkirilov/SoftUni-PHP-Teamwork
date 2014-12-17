@@ -60,7 +60,7 @@ if ($post != null) {
     $tags = explode(',', $post['tags']);
     for ($i = 0; $i < count($tags); $i++) {
         $tag = trim($tags[$i]);
-        echo '<a class="tag" href="' . getSearchUrl("index.php?tag=" . $tag) . '">#' . $tag . ' </a>';
+        echo '<a class="tag" href="' . getSearchUrl("posts.php?tag=" . $tag) . '">#' . $tag . ' </a>';
     }
     echo '</div>';
     echo '<div class="bottomArticle"><span class="views" >Views: ' . $views . '</span><span class="" ></div>';
