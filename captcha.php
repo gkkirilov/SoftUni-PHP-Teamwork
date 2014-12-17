@@ -1,7 +1,7 @@
 <?php
 session_start();
 $captcha =  substr(str_shuffle("qwertyuiopasdfghjklzxcvbnm1234567890"),-6);
-$code = password_hash($captcha, PASSWORD_BCRYPT, ["cost" => 12]);
+$code = password_hash($captcha, PASSWORD_BCRYPT, ["cost" => 5]);
 $_SESSION['captcha'] = $code;
 $width = 90;
 $height = 35;
