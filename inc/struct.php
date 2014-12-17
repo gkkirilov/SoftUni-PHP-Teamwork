@@ -31,7 +31,7 @@ function getHeader($title, $path = "")
                 <li><a href="<?= getSearchUrl('contact.php') ?>">Contact</a></li>
             </ul>
         </nav>
-        <h1><a href="home.php">Blog</a></h1>
+        <h1><a href="<?= getSearchUrl('home.php') ?>">Blog</a></h1>
     </header>
     <aside>
         <div class="searchBar">

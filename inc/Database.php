@@ -158,14 +158,15 @@ class Database
         $this->dbConnection->query('UPDATE `posts` set `title` = "' . $title . '", `text` = "' . $text . '", `tags` = "' . $tags . '" WHERE `id` = "' . $id . '"');
     }
 
-    public function  deleteComment($id)
+    public function deleteComment($id)
     {
         $sql = "DELETE FROM `post_comments` WHERE `id` = $id";
         $query = $this->dbConnection->query($sql);
     }
 
-    public function  deletePost($id)
+    public function deletePost($id)
     {
-
+        $sql = "DELETE FROM `posts` WHERE `id` = $id";
+        $query = $this->dbConnection->query($sql);
     }
 }

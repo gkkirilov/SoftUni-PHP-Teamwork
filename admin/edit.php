@@ -13,6 +13,12 @@ if ($_POST) {
     $artTags = trim($_POST['tags']);
     $errors = array();
 
+    if (isset($_POST['remove'])) {
+        $db->deletePost($id);
+        header("Location: index.php");
+        return;
+    }
+
     if (mb_strlen($artTitle) <= 1 || mb_strlen($artTitle) > 255) {
         $errors["title"] = "The title must be between [1-255].";
     }
@@ -46,9 +52,9 @@ if ($_POST) {
     }
 
     if (!count($errors)) {
-        $db->updatePostById($id,$artTitle, $article, $artTags);
+        $db->updatePostById($id, $artTitle, $article, $artTags);
         if (!$db->dbConnection->error) {
-            Header('Location: ../post.php?id='.$id);
+            Header('Location: ../post.php?id=' . $id);
             unset($artTags);
             unset($artTitle);
             unset($article);
@@ -78,9 +84,11 @@ if ($_POST && count($errors) > 0) {
             <textarea name="article" cols="30" rows="10" id="article"
                       placeholder="Article"><?= isset($article) ? $article : $post['text'] ?></textarea>
             <label for="tags">Tags:</label>
-            <input type="text" id="tags" placeholder="Enter tags" value="<?= isset($artTags) ? $artTags : $post['tags'] ?>"
+            <input type="text" id="tags" placeholder="Enter tags"
+                   value="<?= isset($artTags) ? $artTags : $post['tags'] ?>"
                    name="tags"/>
-            <button type="submit">Edit</button>
+            <button name="edit" type="submit">Edit</button>
+            <button name="remove" type="submit">Remove</button>
         </form>
     </div>
 <?php
