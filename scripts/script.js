@@ -68,7 +68,7 @@ function loadPosts(page, show, pages) {
         var pagesDiv = '';
         for (var i = 1; i <= pages; i++) {
             if (page != i) {
-                pagesDiv += '<a class="pages" href="javascript: loadPosts(' + i + ',' + show + ',' + pages + ');">' + i + '</a> ';
+                pagesDiv += '<a class="pages" href="javascript: loadPosts(' + i + ',' + show + ',' + pages + ');">' + i + '</a>';
             } else {
                 pagesDiv += '<span class="pages-clicked">' + i + '</span> ';
             }
@@ -79,6 +79,8 @@ function loadPosts(page, show, pages) {
 
 function removeComment(id, postId) {
     $.post('inc/removeComment.php', {id: id, postId: postId}, function (e) {
-        window.location = e;
+        location.reload();
+    }).fail(function(){
+        alert("fail");
     });
 }

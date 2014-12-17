@@ -63,7 +63,7 @@ if ($post != null) {
         echo '<a class="tag" href="' . getSearchUrl("index.php?tag=" . $tag) . '">#' . $tag . ' </a>';
     }
     echo '</div>';
-    echo '<div>Views: ' . $views . '</div>';
+    echo '<div class="bottomArticle"><span class="views" >Views: ' . $views . '</span><span class="" ></div>';
     echo '</div>';
     ?>
     <div class="writeComment">
