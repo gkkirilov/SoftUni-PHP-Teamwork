@@ -540,6 +540,11 @@ textarea.leave-comment-input {
 .comment{
     margin-bottom: 15px;
 }
+.removeComment{
+    color:red;
+    font-style: italic;
+    font-size: 20px;
+}
 .comment-name {
     color: #ff976b;
     display: block;
