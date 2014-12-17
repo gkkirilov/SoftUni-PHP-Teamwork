@@ -29,6 +29,12 @@ function getHeader($title, $path = "")
                 <li><a href="<?= getSearchUrl('posts.php') ?>">Posts</a></li>
                 <li><a href="<?= getSearchUrl('about.php') ?>">About us</a></li>
                 <li><a href="<?= getSearchUrl('contact.php') ?>">Contact</a></li>
+                <?php
+                if (isLogged()) {
+                    $url = 'admin/index.php';
+                    echo '<li><a href="'.$url.'">Add Post</a></li>';
+                }
+                ?>
             </ul>
         </nav>
         <h1><a href="<?= getSearchUrl('home.php') ?>">Blog</a></h1>
