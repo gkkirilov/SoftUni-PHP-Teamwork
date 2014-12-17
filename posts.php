@@ -65,7 +65,7 @@ if (isset($_GET["tag"])) {
             if($page != 1){
                 echo '<a href="javascript: loadPosts('.$page.','.$postsPerPage.','.$pages.');" >'.$page.'</a>';
             }else{
-                echo '<span class="pages">'.$page.'</span>';
+                echo '<span class="pages-clicked">'.$page.'</span>';
             }
         }
         ?>

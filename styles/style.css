@@ -530,17 +530,19 @@ textarea.leave-comment-input {
 /* Pagination style BEGIN */
 .pages {
     color: #ff976b;
-    padding: 0 10px 0 10px;
+    padding: 0 10px 0 0;
     font-size: 18px;
     text-align: center;
 }
 
 .pages a {
     color: #ff976b;
+    padding: 0 10px 0 0;
 }
 
 .pages-clicked {
     color: white;
     font-size: 18px;
+    padding: 0 10px 0 0;
 }
 /* Pagination style END */
