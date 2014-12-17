@@ -68,9 +68,9 @@ function loadPosts(page, show, pages) {
         var pagesDiv = '';
         for (var i = 1; i <= pages; i++) {
             if (page != i) {
-                pagesDiv += '<a href="javascript: loadPosts(' + i + ',' + show + ',' + pages + ');">' + i + '</a> | ';
+                pagesDiv += '<a class="pages" href="javascript: loadPosts(' + i + ',' + show + ',' + pages + ');">' + i + '</a> ';
             } else {
-                pagesDiv += '<span>' + i + '</span> | ';
+                pagesDiv += '<span class="pages-clicked">' + i + '</span> ';
             }
         }
         $('.pages').html(pagesDiv);

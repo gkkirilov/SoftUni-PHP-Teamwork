@@ -525,5 +525,22 @@ textarea.leave-comment-input {
     color: #a1a1a1;
     margin-top: -13px;
 }
-
 /* Comments section style END */
+
+/* Pagination style BEGIN */
+.pages {
+    color: #ff976b;
+    padding: 0 10px 0 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.pages a {
+    color: #ff976b;
+}
+
+.pages-clicked {
+    color: white;
+    font-size: 18px;
+}
+/* Pagination style END */

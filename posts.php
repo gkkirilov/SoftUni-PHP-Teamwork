@@ -60,16 +60,16 @@ if (isset($_GET["tag"])) {
         ?>
     </div>
     <div class="pages">
-    <?php
-    for($page = 1;$page <= $pages; $page++){
-        if($page != 1){
-            echo '<a href="javascript: loadPosts('.$page.','.$postsPerPage.','.$pages.');" >'.$page.'</a> | ';
-        }else{
-            echo '<span>'.$page.'</span> | ';
+        <?php
+        for($page = 1;$page <= $pages; $page++){
+            if($page != 1){
+                echo '<a href="javascript: loadPosts('.$page.','.$postsPerPage.','.$pages.');" >'.$page.'</a>';
+            }else{
+                echo '<span class="pages">'.$page.'</span>';
+            }
         }
-    }
-    ?>
-</div>
+        ?>
+    </div>
 <?php
 
 getFooter();
