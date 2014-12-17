@@ -105,11 +105,12 @@ if ($post != null) {
             echo '<p>No data.</p>';
         } else {
             foreach ($comments as $comment) {
+
+                echo ('<div id="comment'.$comment['id'].'" class="comment">');
                 if (isLogged()) {
                     $commentId = $comment['id'];
-                    echo "<a class='comment-remove' href='javascript:removeComment($commentId,$id);'>b</a>";
+                    echo "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment($commentId,$id);'>b</a></div>";
                 }
-                echo ('<div id="comment'.$comment['id'].'" class="comment">');
                 echo('<span class="comment-date">' . date("d.m.Y H:i", $comment['time']) . '</span><br/>');
                 echo('<span class="comment-name">' . $comment['name'] . '</span><br/>');
                 echo('<span class="comment-text">' . nl2br($comment['comment']) . '</span></div>');
