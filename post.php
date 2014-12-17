@@ -50,7 +50,7 @@ getHeader($post['title']);
 
 if ($post != null) {
     if (isLogged()) {
-        echo '<a href="admin/edit.php?id=' . $id . '"><button id="edit-button">Edit</button></a>';
+        echo '<a href="admin/edit.php?id=' . $id . '"><button class="myButton edit-button">Edit</button></a>';
     }
     echo '<div class="post">';
     echo '<div class="date clear">' . date('d.m.Y H:i', $post['time']) . '</div>';
@@ -67,7 +67,7 @@ if ($post != null) {
     echo '</div>';
     ?>
     <div class="writeComment">
-        <div class="leaveComment">Leave Comment</div>
+        <div class="leaveComment myButton">Add Comment</div>
         <?php
         if (count($commentErrors) > 0) {
             foreach ($commentErrors as $err) {
@@ -79,29 +79,31 @@ if ($post != null) {
             <form action="" method="post" id="leave-comment">
                 <h2 id="leave-comment-title">Leave a Reply</h2>
                 <h5 id="leave-comment-required">Required fields are marked *</h5>
-                <span class="nicknameEmail">
-					<label for="nicknameInput"><span class="leave-comment-label">Nickname*:</span>
+                <div class="nicknameDiv">
+					<label for="nicknameInput">Nickname*:</label>
 						<input type="text" id="nicknameInput" class="leave-comment-input"
 							   value="<?= isset($_SESSION['name']) ? $_SESSION['name'] : '' ?>" name="name"/>
-					</label>
-					<label for="emailInput"><span class="leave-comment-label">Email:</span>
+                </div>
+                <div class="nicknameDiv">
+					<label for="emailInput">Email:</label>
 						<input type="text" id="emailInput" class="leave-comment-input"
 							   value="<?= isset($_SESSION['email']) ? $_SESSION['email'] : '' ?>" name="email"/>
-					</label>	
-				</span>
-                <label for="commentTextarea"><span class="leave-comment-label">Comment*:</span>
+                </div>
+                <div class="nicknameDiv">
+                <label for="commentTextarea">Comment*:</label>
                         <textarea name="comment" class="leave-comment-input"
                                   id="commentTextarea"><?= isset($comment) ? $comment : '' ?></textarea>
-                </label>
+                </div>
                 <span class="captchaSubmit" >
-				<label for="captcha">
-                    <img src="captcha.php" alt="captcha" id="captcha"/>
-                    <input type="text" name="captcha" id="captcha-input" placeholder="Enter the code"/>
-                </label>
+                <div id="securityCode">
+                    <label for="captcha">Enter valid security code*:</label>
+                        <img src="captcha.php" alt="captcha" id="captcha"/>
+                        <input type="text" name="captcha" id="captcha-input" placeholder="Enter the code"/>
+                </div>
                 <input type="hidden" name="commentForm"/>
-                <input type="submit" value="Add comment" id="add-comment"/>	
+                <input type="submit" value="Add comment" class="myButton addComment"/>
 				</span>
-            </form><br/>
+            </form>
         </section>
     </div>
     <div class="comments">

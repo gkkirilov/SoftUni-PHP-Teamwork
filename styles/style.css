@@ -22,6 +22,7 @@ html, body {
     width: 900px;
     margin: 0 auto -68px auto;
 }
+
 .wrapper:after{
     content: "";
     display: block;
@@ -304,11 +305,22 @@ section#contact-form {
 }
 
 input[type="text"], input[type="email"] {
-    display: block;
     font-family: sans-serif;
     font-size: 18px;
     box-shadow: none;
+    width: 450px;
+    float: right;
     padding: 0 5px 0 5px;
+}
+.nicknameDiv{
+    margin-top: 15px;
+    width: 100%;
+}
+
+label{
+    color: #FF6D44;
+    width: 50px;
+    margin-right: 20px;
 }
 
 input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
@@ -390,6 +402,7 @@ input, textarea {
 body > div.wrapper.clear > main > div > div > div > img {
     margin-top: 15px;
     float: right;
+    margin-left: 10px;
 
 }
 
@@ -439,7 +452,10 @@ body > div.wrapper.clear > main > div > div > div > article {
 form#search-field {
     text-align: center;
 }
-
+#search{
+    float: none;
+    margin-right: -20px;
+}
 #search-title {
     color: #ff976b;
     text-align: center;
@@ -452,7 +468,6 @@ aside .searchBar #search {
     width: 120px;
     vertical-align: middle;
 }
-
 aside .searchBar #search-button {
     width: 30px;
     height: 23px;
@@ -496,7 +511,7 @@ footer {
 }
 
 #leave-comment {
-    width: 232px;
+    width: 94%;
 }
 
 #leave-comment-title {
@@ -508,9 +523,6 @@ footer {
     font-style: italic;
 }
 
-.leave-comment-input {
-    display: block;
-}
 
 .leave-comment-label {
     display: block;
@@ -519,23 +531,25 @@ footer {
 }
 
 textarea.leave-comment-input {
-    width: 229px;
+    width: 102%;
     height: 200px;
     resize: none;
 }
-
-#captcha-input {
+#securityCode{
     margin-top: 10px;
+    width: 105%;
+}
+#captcha-input {
     display: inline-block;
     vertical-align: middle;
     height: 33px;
-    width: 131px;
+    width: 282px;
+    float: none;
     margin-left: -5px;
     text-align: center;
 }
 
 #captcha {
-    margin-top: 10px;
     display: inline-block;
     vertical-align: middle;
 }
@@ -676,6 +690,19 @@ textarea.leave-comment-input {
 }
 .selected:hover{
     background: #dcdcdc;
+}
+.leaveComment{
+    width: 94%;
+    text-align: center;
+}
+.addComment{
+    width: 105%;
+    text-align: center;
+    margin-top: 10px;
+}
+.edit-button{
+    margin-left: 500px;
+    width: 100px;
 }
 
 /* Pagination style END */
