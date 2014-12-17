@@ -34,9 +34,9 @@ function loadPostComments(page, postId, show, pages,isLogged) {
         var pagesDiv = '';
         for (var i = 1; i <= pages; i++) {
             if (page != i) {
-                pagesDiv += '<a href="javascript: loadPostComments(' + i + ', ' + postId + ', ' + show + ', ' + pages + ')">' + i + '</a>';
+                pagesDiv += '<a class="myButton" href="javascript: loadPostComments(' + i + ', ' + postId + ', ' + show + ', ' + pages + ')">' + i + '</a>';
             } else {
-                pagesDiv += '<span>' + i + '</span>';
+                pagesDiv += '<span class="myButton selected">' + i + '</span>';
             }
         }
         $('.pages').html(pagesDiv);
@@ -76,9 +76,9 @@ function loadPosts(page, show, pages) {
         var pagesDiv = '';
         for (var i = 1; i <= pages; i++) {
             if (page != i) {
-                pagesDiv += '<a class="pages" href="javascript: loadPosts(' + i + ',' + show + ',' + pages + ');">' + i + '</a>';
+                pagesDiv += '<a class="myButton" href="javascript: loadPosts(' + i + ',' + show + ',' + pages + ');">' + i + '</a>';
             } else {
-                pagesDiv += '<span class="pages-clicked">' + i + '</span> ';
+                pagesDiv += '<span class="myButton selected">' + i + '</span>';
             }
         }
         $('.pages').html(pagesDiv);

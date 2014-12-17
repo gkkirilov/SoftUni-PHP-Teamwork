@@ -132,9 +132,9 @@ if ($post != null) {
         for ($page = 1; $page <= $pages; $page++) {
             if ($page != 1) {
 			   $isLogged = isset($_SESSION['isLogged']) ? $_SESSION['isLogged'] : false;	
-                echo '<a href="javascript: loadPostComments(' . $page . ',' . $id . ',' . $commentsPerPage . ',' . $pages . ', '.$isLogged.');" >' . $page . '</a>';
+                echo '<a class="myButton" href="javascript: loadPostComments(' . $page . ',' . $id . ',' . $commentsPerPage . ',' . $pages . ', '.$isLogged.');" >' . $page . '</a>';
             } else {
-                echo '<span>' . $page . '</span>';
+                echo '<span class="myButton selected">' . $page . '</span>';
             }
         }
         ?>

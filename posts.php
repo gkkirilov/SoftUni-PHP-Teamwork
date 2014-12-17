@@ -64,9 +64,9 @@ if (isset($_GET["tag"])) {
         <?php
         for($page = 1;$page <= $pages; $page++){
             if($page != 1){
-                echo '<a href="javascript: loadPosts('.$page.','.$postsPerPage.','.$pages.');" >'.$page.'</a>';
+                echo '<a class="myButton" href="javascript: loadPosts('.$page.','.$postsPerPage.','.$pages.');" >'.$page.'</a>';
             }else{
-                echo '<span class="pages-clicked">'.$page.'</span>';
+                echo '<span class="myButton selected">'.$page.'</span>';
             }
         }
         ?>
