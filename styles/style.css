@@ -220,6 +220,14 @@ aside div ul li a:hover {
     color: #ff976b;
 }
 
+#edit-button{
+    width: 10px;
+    background: #fd6d44;
+    color: #ffffff;
+    font-size: 17px;
+    border-radius: 10px;
+}
+
 .adminError {
     margin-bottom: 10px;
 }
