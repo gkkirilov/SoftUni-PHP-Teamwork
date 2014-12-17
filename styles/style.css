@@ -533,19 +533,25 @@ textarea.leave-comment-input {
 }
 
 .comment-date {
-    color: #ff976b;
+    color: #999;
     font-style: italic;
+    float: right;
 }
-
+.comment{
+    margin-bottom: 15px;
+}
 .comment-name {
-    color: #EEEEEE;
+    color: #ff976b;
     display: block;
+    margin-top: -20px;
 }
 
 .comment-text {
     display: block;
-    color: #a1a1a1;
+    color: #FFF;
     margin-top: -13px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 15px;
 }
 
 #edit-button {

@@ -109,9 +109,10 @@ if ($post != null) {
                     $commentId = $comment['id'];
                     echo "<a class='comment-remove' href='javascript:removeComment($commentId,$id);'>b</a>";
                 }
+                echo ('<div id="comment'.$comment['id'].'" class="comment">');
                 echo('<span class="comment-date">' . date("d.m.Y H:i", $comment['time']) . '</span><br/>');
                 echo('<span class="comment-name">' . $comment['name'] . '</span><br/>');
-                echo('<span class="comment-text">' . nl2br($comment['comment']) . '</span><br/><br/>');
+                echo('<span class="comment-text">' . nl2br($comment['comment']) . '</span></div>');
             }
         }
         ?>
