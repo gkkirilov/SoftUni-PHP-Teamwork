@@ -100,6 +100,9 @@ if ($post != null) {
         </section>
     </div>
     <div class="comments">
+	<script>
+	 var commentsCnt = <?= $commentsCnt;?>;
+	</script>
         <?php
         if (count($comments) == 0) {
             echo '<span id="noComment">No data.</span>';
@@ -109,7 +112,7 @@ if ($post != null) {
                 echo ('<div id="comment'.$comment['id'].'" class="comment">');
                 if (isLogged()) {
                     $commentId = $comment['id'];
-                    echo "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment($commentId, $id, 1, $pages, $commentsPerPage, {$_SESSION['isLogged']});'>b<span class='removeComment'>Remove comment</span></a></div>";
+                    echo "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment($commentId, $id, 1, $commentsPerPage, {$_SESSION['isLogged']});'>b<span class='removeComment'>Remove comment</span></a></div>";
                 }
                 echo('<span class="comment-date">' . date("d.m.Y H:i", $comment['time']) . '</span><br/>');
                 echo('<span class="comment-name">' . $comment['name'] . '</span><br/>');

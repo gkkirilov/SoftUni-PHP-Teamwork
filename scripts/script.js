@@ -17,7 +17,7 @@ function loadPostComments(page, postId, show, pages,isLogged) {
             date.setTime(parseInt(row.time) * 1000);
             date = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes();
             var commentDiv = '<div id="comment'+row.id+'" class="comment">';
-			commentDiv +=  "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment(" + row.id + ", " + row.postId +", " + page + ", " + pages + ", " + show +", " + isLogged + ");'>b<span class='removeComment'>Remove comment</span></a></div>";
+			commentDiv +=  "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment(" + row.id + ", " + row.postId +", " + page + ", " + show +", " + isLogged + ");'>b<span class='removeComment'>Remove comment</span></a></div>";
             commentDiv +='<span class="comment-date">' + date + "</span></br>";
             commentDiv +='<span class="comment-name">'+row.name + "</span><br/>";
             commentDiv +='<span class="comment-text">'+ row.comment;
@@ -78,9 +78,14 @@ function loadPosts(page, show, pages) {
     });
 }
 
-function removeComment(id, postId, page, pages, show, isLogged) {
+function removeComment(id, postId, page, show, isLogged) {
     $.post('inc/removeComment.php', {id: id, postId: postId}, function (e) {
         $("#comment" + id).hide(500);
+		commentsCnt--;
+		if(page * show - commentsCnt >= 10){
+			page--;
+		}
+		var pages = Math.ceil(commentsCnt/show);
 		setTimeout(function(){loadPostComments(page, postId, show, pages, isLogged);}, 500);
     }).fail(function(){
         alert("fail");
