@@ -3,7 +3,7 @@ require '../inc/struct.php';
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === false) {
     header("Location: index.php");
 }
-$title = "Add Post";
+$title = "Blog | Add Post";
 
 getHeader($title, "../");
 

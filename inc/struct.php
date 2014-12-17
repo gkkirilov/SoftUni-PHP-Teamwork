@@ -37,7 +37,7 @@ function getHeader($title, $path = "")
                 ?>
             </ul>
         </nav>
-        <h1><a href="<?= getSearchUrl('home.php') ?>">Blog</a></h1>
+        <h1><a title='TEAM BERLIN BLOG' href="<?= getSearchUrl('home.php') ?>">Blog</a></h1>
     </header>
     <aside>
         <div class="searchBar">
@@ -58,7 +58,7 @@ function getHeader($title, $path = "")
                 $tags = array_keys($db->getMostPopularTags());
                 foreach ($tags as $tag) {
                     $mostPopularTag = mb_strlen($tag) > 16 ? mb_substr($tag, 0, 16) . "..." : $tag;
-                    echo "<li><a href='" . getSearchUrl("home.php?tag=" . $tag) . "'>#$mostPopularTag</a></li>";
+                    echo "<li><a href='" . getSearchUrl("posts.php?tag=" . $tag) . "'>#$mostPopularTag</a></li>";
                 }
                 ?>
             </ul>
