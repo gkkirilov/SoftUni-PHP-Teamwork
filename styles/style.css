@@ -81,6 +81,9 @@ color: #ff976b;
     text-align: justify;
     word-wrap: break-word;
 }
+.writeComment form{
+    display: none;
+}
 
 .post .postTitle a{
     font-size: 25px;

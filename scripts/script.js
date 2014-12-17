@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function (e) {
-
+    $('.leaveComment').on("click", function(){
+        $(this).fadeOut(200);
+        $('.writeComment form').slideDown(200);
+    });
 });
 
 

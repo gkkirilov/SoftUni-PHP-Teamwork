@@ -67,6 +67,7 @@ if ($post != null) {
     echo '</div>';
     ?>
     <div class="writeComment">
+        <div class="leaveComment">Leave Comment</div>
         <?php
         if (count($commentErrors) > 0) {
             foreach ($commentErrors as $err) {
