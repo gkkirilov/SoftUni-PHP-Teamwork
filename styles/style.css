@@ -192,7 +192,7 @@ aside div ul {
 }
 
 aside div ul li {
-    color: #ffcc00;
+    color: #ff976b;
 }
 
 aside div ul li a {
@@ -523,7 +523,9 @@ textarea.leave-comment-input {
 #add-comment:hover {
     cursor: pointer;
 }
-
+#login{
+    width: 200px;
+}
 #add-comment:focus {
     outline: 1px solid #ff976b;
 }

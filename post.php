@@ -102,7 +102,7 @@ if ($post != null) {
     <div class="comments">
         <?php
         if (count($comments) == 0) {
-            echo '<p>No data.</p>';
+            echo '<span id="noComment">No data.</span>';
         } else {
             foreach ($comments as $comment) {
 

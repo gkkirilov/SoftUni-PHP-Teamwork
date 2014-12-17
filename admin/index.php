@@ -32,9 +32,9 @@
 ?>
   <div class="adminPanel">
       <form action="index.php" method="post">
-          <input type="text" name="username" value="<?= isset($username) ? $username : '' ?>" placeholder="username"/>
+          <input id="login" type="text" name="username" value="<?= isset($username) ? $username : '' ?>" placeholder="username"/>
           <input type="password" name="password" placeholder="password"/>
-          <input type="submit" value="Submit"/>
+          <input type="submit" value="Login"/>
       </form>
   </div>
 <?php
