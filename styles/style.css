@@ -83,6 +83,8 @@ color: #ff976b;
 #copyRight {
     margin-left: 100px;
     margin-top: 10px;
+    padding-left: 75px;
+    color: rgba(217, 230, 238, 0.65);
 }
 
 footer > div {
@@ -93,30 +95,26 @@ footer > div {
     display: block;
     float: left;
 }
-
-#navigation {
-    display: inline-block;
+#facebook {
+    float: right;
+    height: 58px;
+    margin-left: 130px;
 }
 
 #navigation > nav ul {
-    font-size: 0;
-    width: 105px;
-}
-
-#facebook {
-    float: right;
-    margin-left: 130px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 #navigation > nav ul li {
     list-style: none;
-    display: block;
+    display: inline-block;
 }
 
 #navigation > nav ul li a {
-    display: block;
     padding: 10px 15px;
     font-size: 20px;
+    border-radius: 20px;
 }
 
 #navigation > nav ul li a:hover {
@@ -371,7 +369,7 @@ body > div.wrapper.clear > main > div > div > div > article {
     width: 430px;
     text-align: justify;
     margin-top: 10px;
-    height: 200px;
+    height: 100px;
 }
 
 /* ABOUT US style END */
@@ -444,7 +442,7 @@ aside .searchBar #search-button:hover {
 footer {
     margin: 20px auto 0;
     width: 100%;
-    height: 200px;
+    height: 100px;
     background-color: rgba(51, 51, 51, 0.18);
 }
 
