@@ -16,11 +16,11 @@ function loadPostComments(page, postId, show, pages) {
             var date = new Date();
             date.setTime(parseInt(row.time) * 1000);
             date = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes();
-            var commentDiv = '<div id="comment'+row.id +'" class="comment">';
-            commentDiv += '<span class="comment-date">' + date + "</span></br>";
-            commentDiv += '<span class="comment-name">' + row.name + "</span><br/>";
-            commentDiv += '<span class="comment-text">' + row.comment;
-            commentDiv += "</span></div>";
+            var commentDiv = '<div class="comment">';
+            commentDiv += date + "</br>";
+            commentDiv += row.name + "<br/>";
+            commentDiv += row.comment;
+            commentDiv += "</div><br/>";
             $('.comments').append(commentDiv);
         });
         var pagesDiv = '';
@@ -79,7 +79,7 @@ function loadPosts(page, show, pages) {
 
 function removeComment(id, postId) {
     $.post('inc/removeComment.php', {id: id, postId: postId}, function (e) {
-        location.reload();
+        $("#comment" + id).hide(500);
     }).fail(function(){
         alert("fail");
     });
