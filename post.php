@@ -116,7 +116,8 @@ if ($post != null) {
                 echo ('<div id="comment'.$comment['id'].'" class="comment">');
                 if (isLogged()) {
                     $commentId = $comment['id'];
-                    echo "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment($commentId, $id, 1, $commentsPerPage, {$_SESSION['isLogged']});'>b<span class='removeComment'>Remove comment</span></a></div>";
+					$isLogged = isset($_SESSION['isLogged']) ? $_SESSION['isLogged'] : false;
+                    echo "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment($commentId, $id, 1, $commentsPerPage, {$isLogged});'>b<span class='removeComment'>Remove comment</span></a></div>";
                 }
                 echo('<span class="comment-date">' . date("d.m.Y H:i", $comment['time']) . '</span><br/>');
                 echo('<span class="comment-name">' . $comment['name'] . '</span><br/>');
@@ -131,9 +132,9 @@ if ($post != null) {
         for ($page = 1; $page <= $pages; $page++) {
             if ($page != 1) {
 			   $isLogged = isset($_SESSION['isLogged']) ? $_SESSION['isLogged'] : false;	
-                echo '<a href="javascript: loadPostComments(' . $page . ',' . $id . ',' . $commentsPerPage . ',' . $pages . ', '.$isLogged.');" >' . $page . '</a> | ';
+                echo '<a href="javascript: loadPostComments(' . $page . ',' . $id . ',' . $commentsPerPage . ',' . $pages . ', '.$isLogged.');" >' . $page . '</a> ';
             } else {
-                echo '<span>' . $page . '</span> | ';
+                echo '<span>' . $page . '</span> ';
             }
         }
         ?>
