@@ -17,9 +17,9 @@ if (isset($_POST['commentForm'])) {
     $captcha = trim($_POST['captcha']);
     $_SESSION['name'] = $name;
     $_SESSION['email'] = $email;
-//    if(!password_verify($captcha, $_SESSION['captcha']) || strlen($_SESSION['captcha']) == 0){
-//        $commentErrors[] = "Wrong validation code.";
-//    }
+   if(!password_verify($captcha, $_SESSION['captcha']) || strlen($_SESSION['captcha']) == 0){
+       $commentErrors[] = "Wrong validation code.";
+   }
     if (strlen($email) > 0 && !filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($email) > 255) {
         $commentErrors[] = "Invalid email.";
     }
@@ -130,7 +130,8 @@ if ($post != null) {
         <?php
         for ($page = 1; $page <= $pages; $page++) {
             if ($page != 1) {
-                echo '<a href="javascript: loadPostComments(' . $page . ',' . $id . ',' . $commentsPerPage . ',' . $pages . ', '.$_SESSION['isLogged'].');" >' . $page . '</a> | ';
+			   $isLogged = isset($_SESSION['isLogged']) ? $_SESSION['isLogged'] : false;	
+                echo '<a href="javascript: loadPostComments(' . $page . ',' . $id . ',' . $commentsPerPage . ',' . $pages . ', '.$isLogged.');" >' . $page . '</a> | ';
             } else {
                 echo '<span>' . $page . '</span> | ';
             }
