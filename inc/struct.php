@@ -57,8 +57,8 @@ function getHeader($title, $path = "")
                 <?php
                 $tags = array_keys($db->getMostPopularTags());
                 foreach ($tags as $tag) {
-                    $mostPopularTag = mb_strlen($tag) > 16 ? mb_substr($tag, 0, 16)."..." : $tag;
-                    echo "<li><a href='" . getSearchUrl("index.php?tag=" . $tag) . "'>#$mostPopularTag</a></li>";
+                    $mostPopularTag = mb_strlen($tag) > 16 ? mb_substr($tag, 0, 16) . "..." : $tag;
+                    echo "<li><a href='" . getSearchUrl("home.php?tag=" . $tag) . "'>#$mostPopularTag</a></li>";
                 }
                 ?>
             </ul>
@@ -69,8 +69,8 @@ function getHeader($title, $path = "")
                 <?php
                 $posts = $db->getMostViewedPosts();
                 foreach ($posts as $row) {
-                    $mostViewedTitle = mb_strlen($row['title']) > 15 ? mb_substr($row['title'], 0, 16)."..." : $row['title'];
-                    echo '<li><a href="post.php?id=' . $row['id'] . '" title="' . $row['title'] . '">' . $mostViewedTitle .'</a></li>';
+                    $mostViewedTitle = mb_strlen($row['title']) > 15 ? mb_substr($row['title'], 0, 16) . "..." : $row['title'];
+                    echo '<li><a href="' . getSearchUrl("post.php?id=" . $row['id']) . '" title="' . $row['title'] . '">' . $mostViewedTitle . '</a></li>';
                 }
                 ?>
             </ul>
@@ -81,8 +81,8 @@ function getHeader($title, $path = "")
                 <?php
                 $posts = $db->getAllPosts(0, 5);
                 foreach ($posts as $row) {
-                    $mostRecentTitle = mb_strlen($row['title']) > 40 ? mb_substr($row['title'], 0, 40)."..." : $row['title'];
-                    echo '<li><a href="post.php?id=' . $row['id'] . '" title="' . $row['title'] . '">' . $mostRecentTitle. '</a></li>';
+                    $mostRecentTitle = mb_strlen($row['title']) > 40 ? mb_substr($row['title'], 0, 40) . "..." : $row['title'];
+                    echo '<li><a href="' . getSearchUrl("post.php?id=" . $row['id']) . '" title="' . $row['title'] . '">' . $mostRecentTitle . '</a></li>';
                 }
                 ?>
             </ul>
@@ -113,9 +113,10 @@ function getFooter()
                 <span>&#0169; 2014-2015 - Blog. All Rights Reserved.</span>
             </article>
             <article id="facebook">
-                <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FSoftwareUniversity%3Ffref%3Dts&amp;width=300&amp;height=175&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true"
-                             scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:175px;"
-                             allowTransparency="true">
+                <iframe
+                    src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FSoftwareUniversity%3Ffref%3Dts&amp;width=300&amp;height=175&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true"
+                    scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:175px;"
+                    allowTransparency="true">
                 </iframe>
             </article>
         </div>
