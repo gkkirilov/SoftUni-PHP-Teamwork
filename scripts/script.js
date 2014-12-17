@@ -34,9 +34,9 @@ function loadPostComments(page, postId, show, pages,isLogged) {
         var pagesDiv = '';
         for (var i = 1; i <= pages; i++) {
             if (page != i) {
-                pagesDiv += '<a href="javascript: loadPostComments(' + i + ', ' + postId + ', ' + show + ', ' + pages + ')">' + i + '</a> | ';
+                pagesDiv += '<a href="javascript: loadPostComments(' + i + ', ' + postId + ', ' + show + ', ' + pages + ')">' + i + '</a>';
             } else {
-                pagesDiv += '<span>' + i + '</span> | ';
+                pagesDiv += '<span>' + i + '</span>';
             }
         }
         $('.pages').html(pagesDiv);

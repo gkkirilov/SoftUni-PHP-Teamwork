@@ -599,13 +599,20 @@ textarea.leave-comment-input {
 
 .pages a {
     color: #ff976b;
-    padding: 0 10px 0 0;
+    padding: 0 2px 0 2px;
+}
+.pages span {
+    color: #ff9760;
+    padding: 0 2px 0 2px;
 }
 
 .pages-clicked {
     color: white;
     font-size: 18px;
     padding: 0 10px 0 0;
+}
+.commentsCnt{
+	float: right;
 }
 
 /* Pagination style END */

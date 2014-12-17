@@ -50,7 +50,8 @@ if (isset($_GET["tag"])) {
                     echo '<a class="tag" href="' . getSearchUrl("index.php?tag=" . $tag) . '">#' . $tag . ' </a>';
                 }
                 echo '</div>';
-                echo "<div>Views: {$row['views']}</div>";
+				$commentsCnt = $db->getCountPostCommentsById($row['id']);
+                echo "<div>Views: {$row['views']}<span class='commentsCnt'>Comments: ".$commentsCnt."</span></div>";
                 echo '</div>';
 
             }
