@@ -350,6 +350,9 @@ input, textarea {
     width: 318px;
     float: none;
 }
+textarea{
+    resize: none;
+}
 
 #question {
     display: block;
