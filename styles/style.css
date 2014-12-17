@@ -706,3 +706,89 @@ textarea.leave-comment-input {
 }
 
 /* Pagination style END */
+
+@media all and (max-width: 924px) {
+    body, html {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .wrapper {
+        width: 96%;
+    }
+
+    header nav ul {
+        margin-right: 200px;
+    }
+
+    aside {
+        float: none;
+        min-width: 100%;
+    }
+
+    main {
+        width: 90.5%;
+        margin: 0 auto;
+    }
+
+    .edit-button {
+        margin: 0 auto;
+    }
+
+    body > div.wrapper.clear > main > div > div > div > article {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 865px){
+    header h1 a {
+        display: none;
+    }
+
+    header nav ul {
+        display: block;
+        width: 100%;
+    }
+
+    .wrapper > header nav {
+        float: none;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+
+    .wrapper > header nav ul li {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    .wrapper > header nav ul li a {
+    }
+
+    article#facebook {
+        display: none;
+    }
+
+    article#navigation {
+        display: none;
+    }
+
+    #footerNav {
+        width: 100%;
+    }
+
+    article#copyRight {
+        text-align: center;
+    }
+
+    #add-comment-section {
+        width: 80%;
+        border-bottom: none;
+    }
+
+    body > div.wrapper.clear > main > div > div > div > img {
+        display: none;
+    }
+}
