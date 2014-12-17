@@ -65,7 +65,7 @@ if ($_POST) {
 }
 $post = $db->getPostById($id);
 ?>
-    <a href="out.php" class="adminLogout">Log out</a>
+    <a class="myButton logoutButton" href="out.php" class="adminLogout">Log out</a>
 <?php
 if ($_POST && count($errors) > 0) {
     echo '<div class="adminError">';
@@ -89,8 +89,8 @@ if ($_POST && count($errors) > 0) {
                    name="tags"/>
 
             <div class="wrapper-buttons">
-                <button name="edit" type="submit">Edit</button>
-                <button name="remove" type="submit">Remove</button>
+                <button class="myButton" name="edit" type="submit">Edit</button>
+                <button class="myButton" name="remove" type="submit">Remove</button>
             </div>
         </form>
     </div>

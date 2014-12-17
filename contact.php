@@ -6,18 +6,11 @@ getHeader("Blog | Contact");
     <section id="contact-form">
         <form action="contact.php" method="post">
             <h3 class="title">Contact Us</h3>
-            <label for="contact-subject">
                 <input type="text" id="contact-subject" name="subject" placeholder="Subject"/>
-            </label>
-            <label for="contact-address">
                 <input type="text" id="contact-address" name="address" placeholder="Email"/>
-            </label>
-            <label for="question">
-                <textarea name="question" id="question"></textarea>
-            </label>
-            <label for="send">
-                <input type="submit" id="send-button" name="send" value="Send"/>
-            </label>
+                <textarea name="question" id="question" placeholder="content"></textarea>
+                <input type="submit" class="myButton send-button" name="send" value="Send"/>
+
         </form>
     </section>
 

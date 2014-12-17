@@ -61,7 +61,7 @@ if ($_POST) {
     }
 }
 ?>
-    <a href="out.php" class="adminLogout">Log out</a>
+    <a class="myButton logoutButton" href="out.php" class="adminLogout">Log out</a>
 <?php
 if ($_POST && count($errors) > 0) {
     echo '<div class="adminError">';
@@ -82,7 +82,7 @@ if ($_POST && count($errors) > 0) {
             <label for="tags">Tags:</label>
             <input type="text" id="tags" placeholder="Enter tags" value="<?= isset($artTags) ? $artTags : '' ?>"
                    name="tags"/>
-            <button type="submit">Post</button>
+            <button class="myButton" type="submit">Post</button>
         </form>
     </div>
 <?php

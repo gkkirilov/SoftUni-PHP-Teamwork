@@ -336,6 +336,7 @@ input, textarea {
     display: block;
     margin: 0 auto;
     width: 318px;
+    float: none;
 }
 
 #contact-subject:focus {
@@ -347,6 +348,7 @@ input, textarea {
     display: block;
     margin: 2px auto;
     width: 318px;
+    float: none;
 }
 
 #question {
@@ -358,20 +360,6 @@ input, textarea {
     font-size: 20px;
 }
 
-#send-button {
-    display: block;
-    margin: 0 auto;
-    width: 330px;
-    height: 40px;
-    border-top: 4px solid transparent;
-    font-size: 19px;
-    font-weight: bold;
-}
-
-#send-button:hover {
-    cursor: pointer;
-    border-top: 4px solid #FF6D44;
-}
 
 #send-button:focus {
     outline: none;
@@ -568,6 +556,7 @@ textarea.leave-comment-input {
 }
 #login{
     width: 200px;
+    float: none;
 }
 #add-comment:focus {
     outline: 1px solid #ff976b;
@@ -704,7 +693,21 @@ textarea.leave-comment-input {
     margin-left: 500px;
     width: 100px;
 }
-
+.send-button {
+    display: block;
+    margin-left: 50px;
+    width: 330px;
+    height: 40px;
+    margin: 0 auto;
+    font-size: 19px;
+    font-weight: bold;
+}
+.loginButton{
+    border-radius: 0px;
+}
+.logoutButton{
+    float: right;
+}
 /* Pagination style END */
 
 @media all and (max-width: 924px) {

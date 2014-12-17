@@ -34,7 +34,7 @@
       <form action="index.php" method="post">
           <input id="login" type="text" name="username" value="<?= isset($username) ? $username : '' ?>" placeholder="username"/>
           <input type="password" name="password" placeholder="password"/>
-          <input type="submit" value="Login"/>
+          <input type="submit" class="myButton loginButton" value="Login"/>
       </form>
   </div>
 <?php
