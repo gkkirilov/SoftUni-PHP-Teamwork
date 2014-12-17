@@ -56,9 +56,13 @@ function getHeader($title, $path = "")
             <ul>
                 <?php
                 $tags = array_keys($db->getMostPopularTags());
-                foreach ($tags as $tag) {
-                    $mostPopularTag = mb_strlen($tag) > 16 ? mb_substr($tag, 0, 16) . "..." : $tag;
-                    echo "<li><a href='" . getSearchUrl("posts.php?tag=" . $tag) . "'>#$mostPopularTag</a></li>";
+                if(count($tags) > 0){
+                    foreach ($tags as $tag) {
+                        $mostPopularTag = mb_strlen($tag) > 16 ? mb_substr($tag, 0, 16) . "..." : $tag;
+                        echo "<li><a href='" . getSearchUrl("posts.php?tag=" . $tag) . "'>#$mostPopularTag</a></li>";
+                    }
+                }else{
+                    echo "<p class='text'>No tags.</p>";
                 }
                 ?>
             </ul>
@@ -68,9 +72,13 @@ function getHeader($title, $path = "")
             <ul>
                 <?php
                 $posts = $db->getMostViewedPosts();
-                foreach ($posts as $row) {
-                    $mostViewedTitle = mb_strlen($row['title']) > 15 ? mb_substr($row['title'], 0, 16) . "..." : $row['title'];
-                    echo '<li><a href="' . getSearchUrl("post.php?id=" . $row['id']) . '" title="' . $row['title'] . '">' . $mostViewedTitle . '</a></li>';
+                if(count($posts) > 0){
+					foreach ($posts as $row) {
+                        $mostViewedTitle = mb_strlen($row['title']) > 15 ? mb_substr($row['title'], 0, 16) . "..." : $row['title'];
+                        echo '<li><a href="' . getSearchUrl("post.php?id=" . $row['id']) . '" title="' . $row['title'] . '">' . $mostViewedTitle . '</a></li>';
+					}
+				}else{
+                    echo "<p class='text'>No posts.</p>";
                 }
                 ?>
             </ul>
@@ -80,10 +88,14 @@ function getHeader($title, $path = "")
             <ul>
                 <?php
                 $posts = $db->getAllPosts(0, 5);
-                foreach ($posts as $row) {
-                    $mostRecentTitle = mb_strlen($row['title']) > 16 ? mb_substr($row['title'], 0, 16) . "..." : $row['title'];
-                    echo '<li><a href="' . getSearchUrl("post.php?id=" . $row['id']) . '" title="' . $row['title'] . '">' . $mostRecentTitle . '</a></li>';
-                }
+                if(count($posts) > 0){
+					foreach ($posts as $row) {
+						$mostRecentTitle = mb_strlen($row['title']) > 16 ? mb_substr($row['title'], 0, 16) . "..." : $row['title'];
+						echo '<li><a href="' . getSearchUrl("post.php?id=" . $row['id']) . '" title="' . $row['title'] . '">' . $mostRecentTitle . '</a></li>';
+					}
+				}else{
+					echo "<p class='text'>No posts.</p>";
+				}
                 ?>
             </ul>
         </div>

@@ -74,6 +74,7 @@ class Database
 
     public function getMostViewedPosts($count = 5)
     {
+		$posts = array();	
         $query = $this->dbConnection->query('SELECT * FROM `posts` ORDER BY `views` desc limit 0, ' . $count);
         while ($row = $query->fetch_assoc()) {
             $posts[] = $row;

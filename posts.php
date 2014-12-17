@@ -56,7 +56,7 @@ if (isset($_GET["tag"])) {
 
             }
         } else {
-            echo '<p>No data</p>';
+            echo "<p class='text'>No posts.</p>";
         }
         ?>
     </div>

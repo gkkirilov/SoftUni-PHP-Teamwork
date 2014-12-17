@@ -614,5 +614,9 @@ textarea.leave-comment-input {
 .commentsCnt{
 	float: right;
 }
+.text{
+	text-align: center;
+	color: #ff976b;
+}
 
 /* Pagination style END */
