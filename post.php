@@ -49,10 +49,10 @@ getHeader($post['title']);
 
 
 if ($post != null) {
-    echo '<div class="post">';
     if (isLogged()) {
-        echo '<div><a href="admin/edit.php?id=' . $id . '">Edit</a></div>';
+        echo '<a href="admin/edit.php?id=' . $id . '"><button id="edit-button">Edit</button></a>';
     }
+    echo '<div class="post">';
     echo '<div class="date clear">' . date('d.m.Y H:i', $post['time']) . '</div>';
     echo '<h3 class="postTitle">' . $post['title'] . '</h3>';
     echo '<div class="postContent">' . nl2br($post['text']) . '</div>';

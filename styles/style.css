@@ -525,6 +525,22 @@ textarea.leave-comment-input {
     color: #a1a1a1;
     margin-top: -13px;
 }
+
+#edit-button {
+    width: 100px;
+    height: 20px;
+    border: none;
+    margin-left: 490px;
+}
+
+#edit-button:hover {
+    cursor: pointer;
+}
+
+#edit-button a {
+    color: black;
+    font-weight: bold;
+}
 /* Comments section style END */
 
 /* Pagination style BEGIN */
