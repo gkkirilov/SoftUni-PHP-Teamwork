@@ -123,6 +123,16 @@ footer > div {
     border-top: 3px solid #ff976b;
     padding-top: 7px;
 }
+#navigation > nav ul li a:visited {
+    background: #e6e6e6;
+    color: #989898;
+    border-top: 3px solid #ff976b;
+    padding-top: 7px;
+}
+#navigation > nav >ul > li >a:hover{
+    color: #333;
+    background: #dddddd;
+ }
 
 .wrapper > header {
     padding: 30px 0;
