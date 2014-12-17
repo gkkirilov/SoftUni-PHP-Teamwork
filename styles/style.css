@@ -73,6 +73,14 @@ color: #ff976b;
     color: #FFF;
     font-size: 25px;
 }
+.post .tags a{
+    word-wrap: break-word;
+}
+
+.postContent{
+    text-align: justify;
+    word-wrap: break-word;
+}
 
 .post .postTitle a {
     font-size: 25px;
