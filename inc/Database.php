@@ -30,6 +30,7 @@ class Database
         }
         return $posts;
     }
+
     public function getCountAllPosts()
     {
         $query = $this->dbConnection->query('SELECT * FROM `posts`');
@@ -43,16 +44,16 @@ class Database
         if ($start !== false && $show !== false) {
             $limit = " limit " . $start . ", " . $show;
         }
-        $tags = explode(" ",$tags);
-        foreach($tags as $tag){
+        $tags = explode(" ", $tags);
+        foreach ($tags as $tag) {
             $tag = trim($tag);
-            if(isset($where)){
+            if (isset($where)) {
                 $where .= " OR LOWER(`tags`) LIKE  LOWER ('%" . $tag . "%')";
-            }else{
+            } else {
                 $where = "WHERE LOWER(`tags`) LIKE  LOWER ('%" . $tag . "%')";
             }
         }
-        $sql = "SELECT * FROM `posts` ".$where." ORDER BY time desc " . $limit;
+        $sql = "SELECT * FROM `posts` " . $where . " ORDER BY time desc " . $limit;
         $query = $this->dbConnection->query($sql);
         while ($row = $query->fetch_assoc()) {
             $posts[] = $row;
@@ -116,41 +117,55 @@ class Database
     }
 
 
-    public function addPostComment($id, $name, $email, $comment){
+    public function addPostComment($id, $name, $email, $comment)
+    {
         $name = $this->dbConnection->real_escape_string($name);
         $email = $this->dbConnection->real_escape_string($email);
         $comment = $this->dbConnection->real_escape_string($comment);
-        $this->dbConnection->query('INSERT INTO `post_comments`(`postId`,`name`,`email`,`comment`,`time`) VALUES ('.$id.',"'.$name.'","'.$email.'","'.$comment.'", '.time().')  ');
-        if($this->dbConnection->error){
+        $this->dbConnection->query('INSERT INTO `post_comments`(`postId`,`name`,`email`,`comment`,`time`) VALUES (' . $id . ',"' . $name . '","' . $email . '","' . $comment . '", ' . time() . ')  ');
+        if ($this->dbConnection->error) {
             return false;
         }
         return true;
     }
 
-    public function getPostCommentsById($id, $start = false, $show = false){
+    public function getPostCommentsById($id, $start = false, $show = false)
+    {
         $limit = "";
         $comments = array();
         if ($start !== false && $show !== false) {
             $limit = " limit " . $start . ", " . $show;
         }
-        $query = $this->dbConnection->query('SELECT * FROM `post_comments` WHERE `postId` = '.$id.' ORDER BY `time` desc '.$limit);
+        $query = $this->dbConnection->query('SELECT * FROM `post_comments` WHERE `postId` = ' . $id . ' ORDER BY `time` desc ' . $limit);
 //        echo $this->dbConnection->error;
-        while($row = $query->fetch_assoc()){
+        while ($row = $query->fetch_assoc()) {
             $comments[] = $row;
         }
         return $comments;
     }
 
-    public function getCountPostCommentsById($id){
-        $query = $this->dbConnection->query('SELECT * FROM `post_comments` WHERE `postId` = '.$id);
+    public function getCountPostCommentsById($id)
+    {
+        $query = $this->dbConnection->query('SELECT * FROM `post_comments` WHERE `postId` = ' . $id);
         return $query->num_rows;
     }
 
-    public function updatePostById($id,$title, $text, $tags)
+    public function updatePostById($id, $title, $text, $tags)
     {
         $title = $this->dbConnection->real_escape_string($title);
         $text = $this->dbConnection->real_escape_string($text);
         $tags = $this->dbConnection->real_escape_string($tags);
-        $this->dbConnection->query('UPDATE `posts` set `title` = "'.$title.'", `text` = "'.$text.'", `tags` = "'.$tags.'" WHERE `id` = "'.$id.'"');
+        $this->dbConnection->query('UPDATE `posts` set `title` = "' . $title . '", `text` = "' . $text . '", `tags` = "' . $tags . '" WHERE `id` = "' . $id . '"');
+    }
+
+    public function  deleteComment($id)
+    {
+        $sql = "DELETE FROM `post_comments` WHERE `id` = $id";
+        $query = $this->dbConnection->query($sql);
+    }
+
+    public function  deletePost($id)
+    {
+
     }
 }

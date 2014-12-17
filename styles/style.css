@@ -26,10 +26,12 @@ main {
     padding: 15px 25px;
     border-top: 5px solid #FF6D44;
 }
-#footerNav{
+
+#footerNav {
     width: 900px;
     margin: 0 auto;
 }
+
 .post {
     margin-bottom: 20px;
     color: #ccc;
@@ -43,6 +45,7 @@ main {
     display: block;
     content: "";
 }
+
 .post .date {
     float: right;
     font-style: italic;
@@ -50,14 +53,17 @@ main {
     color: #999;
     margin: 5px 10px 0 0;
 }
-.post .aboutTitle{
+
+.post .aboutTitle {
     color: #FFF;
     font-size: 25px;
 }
+
 .post .postTitle a {
     font-size: 25px;
     color: #ff976b;
 }
+
 .post .postTitle {
     font-size: 25px;
     color: #ff976b;
@@ -67,43 +73,53 @@ main {
     font-size: 25px;
     color: #ffb788;
 }
-#copyRight{
+
+#copyRight {
     margin-left: 100px;
-margin-top: 10px;
+    margin-top: 10px;
 }
+
 footer > div {
     padding: 10px 0;
 }
-#footerNav article{
+
+#footerNav article {
     display: block;
     float: left;
 }
+
 #navigation {
     display: inline-block;
 }
+
 #navigation > nav ul {
     font-size: 0;
     width: 105px;
 }
+
 #facebook {
     float: right;
     margin-left: 130px;
 }
-#navigation > nav ul li{
+
+#navigation > nav ul li {
     list-style: none;
     display: block;
 }
+
 #navigation > nav ul li a {
     display: block;
     padding: 10px 15px;
     font-size: 20px;
 }
-#navigation > nav ul li a:hover{
+
+#navigation > nav ul li a:hover {
     background: #e6e6e6;
     color: #333;
     border-top: 3px solid #ff976b;
     padding-top: 7px;
 }
+
 .wrapper > header {
     padding: 30px 0;
 }
@@ -141,12 +157,13 @@ footer > div {
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-aside{
+aside {
     float: right;
     text-align: left;
     width: 215px;
 }
-aside div{
+
+aside div {
     border-top: 5px solid #FF6D44;
     padding: 15px 25px;
     margin-bottom: 10px;
@@ -154,6 +171,7 @@ aside div{
     width: 100%;
     box-sizing: border-box;
 }
+
 aside div ul {
     list-style: square;
     padding-left: 15px;
@@ -185,9 +203,11 @@ aside div ul li a:hover {
 .adminPanel {
     color: #ccc;
 }
+
 #footerNav > nav {
     width: 120px;
 }
+
 .adminPanel form input, .adminPanel form textarea, .adminPanel form button {
     display: block;
     margin: 5px 0;
@@ -315,28 +335,22 @@ input, textarea {
 
 /* Contact form style END */
 
-
-
-
 /* ABOUT US style BEGIN */
-body > div.wrapper.clear > main > div > div > div > img{
+body > div.wrapper.clear > main > div > div > div > img {
     margin-top: 15px;
-    float:right;
+    float: right;
 
 }
-body > div.wrapper.clear > main > div > div > div > article{
+
+body > div.wrapper.clear > main > div > div > div > article {
     display: inline-block;
     width: 430px;
     text-align: justify;
     margin-top: 10px;
-    height:200px;
+    height: 200px;
 }
 
 /* ABOUT US style END */
-
-
-
-
 
 /* Tags filter style BEGIN */
 .tags {
@@ -367,9 +381,8 @@ body > div.wrapper.clear > main > div > div > div > article{
 .filter a:hover {
     color: #7b0206;
 }
+
 /* Tags filter style END */
-
-
 
 /* Search bar style BEGIN */
 form#search-field {
@@ -387,7 +400,7 @@ aside .searchBar #search {
     display: inline-block;
     width: 120px;
     vertical-align: middle;
- }
+}
 
 aside .searchBar #search-button {
     width: 30px;
@@ -400,8 +413,8 @@ aside .searchBar #search-button {
 aside .searchBar #search-button:hover {
     cursor: pointer;
 }
-/* Search bar style END */
 
+/* Search bar style END */
 
 /* Footer style BEGIN */
 footer {
@@ -410,11 +423,23 @@ footer {
     height: 200px;
     background-color: rgba(51, 51, 51, 0.18);
 }
+
 /* Footer style END */
 
-
-
 /* Comments section style BEGIN */
+.comment-remove {
+    color: #dc0207;
+    font-family: icons;
+    font-width: bold;
+    line-height: 15px;
+    vertical-align: middle;
+}
+
+.comment-remove:hover {
+    color: #7b0206;
+    cursor: pointer;
+}
+
 #add-comment-section {
     border-bottom: 3px double #666;
 }
@@ -500,4 +525,5 @@ textarea.leave-comment-input {
     color: #a1a1a1;
     margin-top: -13px;
 }
+
 /* Comments section style END */
