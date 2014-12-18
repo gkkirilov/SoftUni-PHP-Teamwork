@@ -7,9 +7,9 @@ class Database
     public function  __construct()
     {
         $host = "localhost";
-        $user = "root";
-        $pass = "";
-        $db = "blog";
+        $user = "tuksmene_softuni";
+        $pass = "parolateamberlin123";
+        $db = "tuksmene_softuni";
         $this->dbConnection = @new Mysqli($host, $user, $pass, $db);
         if ($this->dbConnection->connect_error) {
             die("Database not found");
@@ -69,7 +69,8 @@ class Database
     public function getPostViews($id)
     {
         $query = $this->dbConnection->query('SELECT `views` FROM  `posts` WHERE `id` = ' . $id);
-        return $query->fetch_assoc()['views'];
+        $res = $query->fetch_assoc();
+        return $res['views'];
     }
 
     public function getMostViewedPosts($count = 5)
@@ -174,8 +175,8 @@ class Database
 
     public function isVoted($postId){
         $check = $this->dbConnection->query('SELECT * FROM `post_rating` WHERE `postId` = "'.$postId.'" and `ip` = "'.$_SERVER['REMOTE_ADDR'].'"');
+//        RETURN false;
         return $check->num_rows;
-//        return false;
     }
 
 	public function votePost($postId, $vote){

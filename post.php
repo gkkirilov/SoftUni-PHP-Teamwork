@@ -18,9 +18,9 @@ if (isset($_POST['commentForm'])) {
     $captcha = trim($_POST['captcha']);
     $_SESSION['name'] = $name;
     $_SESSION['email'] = $email;
-    if(!password_verify($captcha, $_SESSION['captcha']) || strlen($_SESSION['captcha']) == 0){
-        $commentErrors[] = "Wrong validation code.";
-    }
+//    if(!password_verify($captcha, $_SESSION['captcha']) || strlen($_SESSION['captcha']) == 0){
+//        $commentErrors[] = "Wrong validation code.";
+//    }
     if (strlen($email) > 0 && !filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($email) > 255) {
         $commentErrors[] = "Invalid email.";
     }

@@ -52,7 +52,7 @@ if ($_POST) {
             echo '<div class="adminSuccess">';
             echo "<p>Post added.</p>";
             echo '</div>';
-            unset($arrTags);
+            unset($artTags);
             unset($artTitle);
             unset($article);
         } else {
