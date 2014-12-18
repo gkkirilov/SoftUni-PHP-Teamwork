@@ -5,7 +5,6 @@ if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === false || $id <= 0
     header("Location: index.php");
 }
 $title = "Edit Post";
-getHeader($title, "../");
 
 if ($_POST) {
     $artTitle = trim($_POST['title']);
@@ -59,10 +58,12 @@ if ($_POST) {
             unset($artTitle);
             unset($article);
         } else {
-            echo "Database error.<br/>";
+            $errors[] = "Database error.<br/>";
         }
     }
 }
+
+getHeader($title, "../");
 $post = $db->getPostById($id);
 ?>
     <a class="myButton logoutButton" href="out.php" class="adminLogout">Log out</a>
