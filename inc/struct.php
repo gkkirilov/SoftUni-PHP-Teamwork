@@ -32,7 +32,7 @@ function getHeader($title, $path = "")
                 <li><a href="<?= getSearchUrl('contact.php') ?>">Contact</a></li>
                 <?php
                 if (isLogged()) {
-                    $url = 'admin/index.php';
+                    $url = getSearchUrl('admin/addPost.php');
                     echo '<li><a href="'.$url.'">Add Post</a></li>';
                 }
                 ?>
