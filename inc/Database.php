@@ -180,7 +180,7 @@ class Database
 	public function votePost($postId, $vote){
 		if(!$this->isVoted($postId)){
             $this->dbConnection->query('INSERT INTO `post_rating`(`postId`,`vote`,`ip`) VALUES ("'.$postId.'", "'.$vote.'", "'.$_SERVER['REMOTE_ADDR'].'")');
-            if($this->dbConnection->error){
+            if(!$this->dbConnection->error){
                 return 1;
             }
         }

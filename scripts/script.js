@@ -111,9 +111,12 @@ function vote(postId,vote){
         if(result == "1"){
             if(vote == "up"){
                 $('.voteUp').text(parseInt($('.voteUp').text()) + 1);
+                positiveRating++;
             }else if(vote == "down"){
                 $('.voteDown').text(parseInt($('.voteDown').text()) + 1);
+                negativeRating++;
             }
+            $('.rating .positive').width(positiveWidth = (positiveRating / (positiveRating + negativeRating) * 100) + "%");
             voted = 1;
         }
        }).error(function (){

@@ -78,7 +78,10 @@ if ($post != null) {
         $positiveWidth = ($rating["positive"] / ($rating["positive"] + $rating["negative"]) * 100) . "%";
     }
     ?>
-
+    <script>
+        var positiveRating = <?= $rating["positive"] ?>;
+        var negativeRating = <?= $rating["negative"] ?>;
+    </script>
     <div class="vote">
         <div class="voteButtons">
             <a href="javascript: vote(<?= $id ?>,'up');" class="voteUp<?= $inActiveClass ?>" ><?= $rating["positive"] ?></a>
