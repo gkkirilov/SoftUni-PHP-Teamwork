@@ -55,7 +55,7 @@ function loadPostComments(page, postId, show, pages,isLogged) {
                     commentDiv +=  "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment(" + row.id + ", " + row.postId +", " + page + ", " + show +", " + isLogged + ");'>b<span class='removeComment'>Remove comment</span></a></div>";
                 }
                 commentDiv +='<span class="comment-date">' + date + "</span></br>";
-				commentDiv +='<span class="comment-name">'+row.name + "</span><br/>";
+				commentDiv +='<span class="comment-name">'+ row.name + "</span><br/>";
 				commentDiv +='<span class="comment-text">'+ row.comment;
 				commentDiv += "</span></div>";
 				$('.comments').append(commentDiv);

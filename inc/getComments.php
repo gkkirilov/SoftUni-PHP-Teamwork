@@ -8,8 +8,8 @@ $show = (int)$_GET['show'];
 
 $start = ($page-1) * $show;
 $result = $db->getPostCommentsById($id,$start,$show);
-foreach($result as $row){
-    $result["name"] = htmlspecialchars($row['name']);
-    $result["comment"] = htmlspecialchars($row['comment']);
+for($i=0;$i < count($result); $i++){
+    $result[$i]["name"] = htmlspecialchars($result[$i]['name']);
+    $result[$i]["comment"] = htmlspecialchars($result[$i]['comment']);
 }
 echo json_encode($result);
