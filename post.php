@@ -18,9 +18,9 @@ if (isset($_POST['commentForm'])) {
     $captcha = trim($_POST['captcha']);
     $_SESSION['name'] = $name;
     $_SESSION['email'] = $email;
-    if(!password_verify($captcha, $_SESSION['captcha']) || strlen($_SESSION['captcha']) == 0){
-        $commentErrors[] = "Wrong validation code.";
-    }
+//    if(!password_verify($captcha, $_SESSION['captcha']) || strlen($_SESSION['captcha']) == 0){
+//        $commentErrors[] = "Wrong validation code.";
+//    }
     if (strlen($email) > 0 && !filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($email) > 255) {
         $commentErrors[] = "Invalid email.";
     }
@@ -44,8 +44,7 @@ $comments = $db->getPostCommentsById($id, 0, 10);
 $commentsCnt = $db->getCountPostCommentsById($id);
 $commentsPerPage = 10;
 $pages = ceil($commentsCnt / $commentsPerPage);
-
-
+$rating = $db->getPostRatingById($id);
 getHeader($post['title']);
 
 
@@ -65,13 +64,32 @@ if ($post != null) {
     }
     echo '</div>';
     echo '<div class="bottomArticle"><span class="views" >Views: ' . $views . '</span>';
-
-    if(!$db->isVoted($id)){
-        echo '<span class="vote"><a href="javascript: vote('.$id.',\'up\');" class="voteUp" ></a> <a href="javascript: vote('.$id.',\'down\');" class="voteDown" ></a></span>';
+    $inActiveClass = "";
+    if($db->isVoted($id)){
+        $inActiveClass = " inActive";
     }
-    echo '</div>';
-    echo '</div>';
+    if($rating["positive"] == $rating["negative"]){
+        $positiveWidth = "50%";
+    }else if($rating["positive"] == 0){
+        $positiveWidth = 0;
+    }else if($rating["negative"] == 0){
+        $positiveWidth = "100%";
+    }else{
+        $positiveWidth = ($rating["positive"] / ($rating["positive"] + $rating["negative"]) * 100) . "%";
+    }
     ?>
+
+    <div class="vote">
+        <div class="voteButtons">
+            <a href="javascript: vote(<?= $id ?>,'up');" class="voteUp<?= $inActiveClass ?>" ><?= $rating["positive"] ?></a>
+            <a href="javascript: vote(<?= $id ?>,'down');" class="voteDown<?= $inActiveClass ?>" ><?= $rating['negative'] ?></a>
+        </div>
+        <div class="rating">
+            <div class="positive" style="width: <?= $positiveWidth ?>;"></div>
+        </div>
+    </div>
+    </div>
+    </div>
     <div class="writeComment">
         <div class="leaveComment myButton">Add Comment</div>
         <?php
@@ -140,7 +158,7 @@ if ($post != null) {
         <?php
         for ($page = 1; $page <= $pages; $page++) {
             if ($page != 1) {
-			   $isLogged = isset($_SESSION['isLogged']) ? $_SESSION['isLogged'] : false;	
+			   $isLogged = isset($_SESSION['isLogged']) && $_SESSION['isLogged'] === true ? 1 : 0;
                 echo '<a class="myButton" href="javascript: loadPostComments(' . $page . ',' . $id . ',' . $commentsPerPage . ',' . $pages . ', '.$isLogged.');" >' . $page . '</a>';
             } else {
                 echo '<span class="myButton selected">' . $page . '</span>';

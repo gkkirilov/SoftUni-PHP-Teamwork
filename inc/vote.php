@@ -9,5 +9,5 @@ if($_GET['vote'] == "up"){
     $vote = -1;
 }
 if($vote != 0){
-    $db->votePost($postId, $vote);
+    echo $db->votePost($postId, $vote);
 }

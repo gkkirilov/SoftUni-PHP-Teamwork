@@ -180,7 +180,29 @@ class Database
 	public function votePost($postId, $vote){
 		if(!$this->isVoted($postId)){
             $this->dbConnection->query('INSERT INTO `post_rating`(`postId`,`vote`,`ip`) VALUES ("'.$postId.'", "'.$vote.'", "'.$_SERVER['REMOTE_ADDR'].'")');
+            if($this->dbConnection->error){
+                return 1;
+            }
         }
+        return 0;
 	}
+
+    public function getPostRatingById($id){
+        $query = $this->dbConnection->query('SELECT `vote` FROM `post_rating` WHERE `postId` = '.$id);
+        $rating = array(
+            "positive"=> 0,
+            "negative"=> 0
+        );
+        if($query->num_rows){
+            while($row = $query->fetch_assoc()){
+                if((int)$row['vote'] == 1){
+                    $rating["positive"]++;
+                }else if((int)$row['vote'] == -1){
+                    $rating["negative"]++;
+                }
+            }
+        }
+        return $rating;
+    }
 
 }

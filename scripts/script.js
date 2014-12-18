@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
 function loadPostComments(page, postId, show, pages,isLogged) {
-    $('.comments').html("Loading...");
     $.ajax({
         url: "inc/getComments.php?page=" + page + "&id=" + postId + "&show=" + show,
         context: document.body
@@ -24,8 +23,10 @@ function loadPostComments(page, postId, show, pages,isLogged) {
 				date.setTime(parseInt(row.time) * 1000);
 				date = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes();
 				var commentDiv = '<div id="comment'+row.id+'" class="comment">';
-				commentDiv +=  "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment(" + row.id + ", " + row.postId +", " + page + ", " + show +", " + isLogged + ");'>b<span class='removeComment'>Remove comment</span></a></div>";
-				commentDiv +='<span class="comment-date">' + date + "</span></br>";
+				if(isLogged == 1){
+                    commentDiv +=  "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment(" + row.id + ", " + row.postId +", " + page + ", " + show +", " + isLogged + ");'>b<span class='removeComment'>Remove comment</span></a></div>";
+                }
+                commentDiv +='<span class="comment-date">' + date + "</span></br>";
 				commentDiv +='<span class="comment-name">'+row.name + "</span><br/>";
 				commentDiv +='<span class="comment-text">'+ row.comment;
 				commentDiv += "</span></div>";
@@ -37,7 +38,7 @@ function loadPostComments(page, postId, show, pages,isLogged) {
         var pagesDiv = '';
         for (var i = 1; i <= pages; i++) {
             if (page != i) {
-                pagesDiv += '<a class="myButton" href="javascript: loadPostComments(' + i + ', ' + postId + ', ' + show + ', ' + pages + ')">' + i + '</a>';
+                pagesDiv += '<a class="myButton" href="javascript: loadPostComments(' + i + ', ' + postId + ', ' + show + ', ' + pages + ', '+isLogged+')">' + i + '</a>';
             } else {
                 pagesDiv += '<span class="myButton selected">' + i + '</span>';
             }
@@ -47,7 +48,6 @@ function loadPostComments(page, postId, show, pages,isLogged) {
 }
 
 function loadPosts(page, show, pages) {
-    $('.posts').html("Loading...");
     $.ajax({
         url: "inc/getPosts.php?page=" + page + "&show=" + show,
         context: document.body
@@ -96,19 +96,28 @@ function removeComment(id, postId, page, show, isLogged) {
 			page--;
 		}
 		var pages = Math.ceil(commentsCnt/show);
-		setTimeout(function(){loadPostComments(page, postId, show, pages, isLogged);}, 500);
+		setTimeout(function(){loadPostComments(page, postId, show, pages,isLogged);}, 500);
     }).fail(function(){
         alert("fail");
     });
 }
 
-
+var voted = 0;
 function vote(postId,vote){
-    $.ajax({
-        url: "inc/vote.php?postId=" + postId + "&vote=" + vote
-    }).done(function(){
-        $('.vote').hide();
-    }).error(function (){
-        alert("Error");
-    });
+   if(voted == 0){
+       $.ajax({
+           url: "inc/vote.php?postId=" + postId + "&vote=" + vote
+       }).done(function(result){
+        if(result == "1"){
+            if(vote == "up"){
+                $('.voteUp').text(parseInt($('.voteUp').text()) + 1);
+            }else if(vote == "down"){
+                $('.voteDown').text(parseInt($('.voteDown').text()) + 1);
+            }
+            voted = 1;
+        }
+       }).error(function (){
+           alert("Error");
+       });
+   }
 }
