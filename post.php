@@ -151,8 +151,8 @@ if ($post != null) {
                     echo "<div class='removeButton'><a class='comment-remove' href='javascript:removeComment($commentId, $id, 1, $commentsPerPage, {$isLogged});'>b<span class='removeComment'>Remove comment</span></a></div>";
                 }
                 echo('<span class="comment-date">' . date("d.m.Y H:i", $comment['time']) . '</span><br/>');
-                echo('<span class="comment-name">' . $comment['name'] . '</span><br/>');
-                echo('<span class="comment-text">' . nl2br($comment['comment']) . '</span></div>');
+                echo('<span class="comment-name">' . htmlspecialchars($comment['name']) . '</span><br/>');
+                echo('<span class="comment-text">' . htmlspecialchars(nl2br($comment['comment'])) . '</span></div>');
             }
         }
         ?>
