@@ -100,14 +100,14 @@ function getHeader($title, $path = "")
             </ul>
         </div>
     </aside>
-    <main><?php
+    <div id="main"><?php
 }
 
 function getFooter()
 {
     ?>
 
-    </main>
+    </div>
     </div>
     <footer>
         <div id="footerNav">

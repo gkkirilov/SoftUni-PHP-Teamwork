@@ -15,7 +15,7 @@ html, body {
     src: url(../fonts/font.ttf);
 }
 
-/* Main header style BEGIN */
+/* #main header style BEGIN */
 .wrapper {
     min-height: 100%;
     margin-bottom: -68px;
@@ -30,7 +30,7 @@ html, body {
 footer, .wrapper:after {
     height: 68px;
 }
-main {
+#main {
     width: 600px;
     background: #333;
     padding: 15px 25px;
@@ -226,7 +226,7 @@ aside div ul li a:hover {
     color: #fff;
 }
 
-/* Main header style END */
+/* #main header style END */
 
 /* Admin panel style BEGIN */
 .adminError p {
@@ -391,14 +391,14 @@ textarea{
 /* Contact form style END */
 
 /* ABOUT US style BEGIN */
-body > div.wrapper.clear > main > div > div > div > img {
+body > div.wrapper.clear > #main > div > div > div > img {
     margin-top: 15px;
     float: right;
     margin-left: 10px;
 
 }
 
-body > div.wrapper.clear > main > div > div > div > article {
+body > div.wrapper.clear > #main > div > div > div > article {
     display: inline-block;
     width: 430px;
     text-align: justify;
@@ -767,7 +767,7 @@ textarea.leave-comment-input {
         min-width: 100%;
     }
 
-    main {
+    #main {
         width: 90.5%;
         margin: 0 auto;
     }
@@ -776,7 +776,7 @@ textarea.leave-comment-input {
         margin: 0 auto;
     }
 
-    body > div.wrapper.clear > main > div > div > div > article {
+    body > div.wrapper.clear > #main > div > div > div > article {
         width: 100%;
     }
 }
@@ -829,7 +829,7 @@ textarea.leave-comment-input {
         border-bottom: none;
     }
 
-    body > div.wrapper.clear > main > div > div > div > img {
+    body > div.wrapper.clear > #main > div > div > div > img {
         display: none;
     }
 }
