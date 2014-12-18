@@ -1,7 +1,35 @@
 document.addEventListener("DOMContentLoaded", function (e) {
+    if(post){
+        $('.writeComment form').show();
+        $('.leaveComment').hide();
+    }
     $('.leaveComment').on("click", function(){
         $(this).fadeOut(200);
         $('.writeComment form').slideDown(200);
+    });
+    $('#nicknameInput').on("keyup", function(){
+        if($(this).val().length < 3 || $(this).val().length > 50){
+            $(this).css({'background':'#ff0000'});
+            //alert("asd");
+        }else{
+            $(this).css({'background':'#fff'});
+        }
+    });
+    $('#commentTextarea').on("keyup", function(){
+        if($(this).val().length < 2){
+            $(this).css({'background':'#ff0000'});
+            //alert("asd");
+        }else{
+            $(this).css({'background':'#fff'});
+        }
+    });
+    $('#emailInput').on("keyup", function(){
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if($(this).val().length > 0 && !re.test($(this).val())){
+            $(this).css({'background':'#ff0000'});
+        }else{
+            $(this).css({'background':'#fff'});
+        }
     });
 });
 

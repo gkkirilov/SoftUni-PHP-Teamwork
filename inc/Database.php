@@ -175,6 +175,7 @@ class Database
     public function isVoted($postId){
         $check = $this->dbConnection->query('SELECT * FROM `post_rating` WHERE `postId` = "'.$postId.'" and `ip` = "'.$_SERVER['REMOTE_ADDR'].'"');
         return $check->num_rows;
+//        return false;
     }
 
 	public function votePost($postId, $vote){
