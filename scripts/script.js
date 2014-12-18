@@ -9,26 +9,26 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
     $('#nicknameInput').on("keyup", function(){
         if($(this).val().length < 3 || $(this).val().length > 50){
-            $(this).css({'background':'#ff0000'});
+            $(this).css({'border-color':'#ff0000'});
             //alert("asd");
         }else{
-            $(this).css({'background':'#fff'});
+            $(this).css({'border-color':'#fff'});
         }
     });
     $('#commentTextarea').on("keyup", function(){
         if($(this).val().length < 2){
-            $(this).css({'background':'#ff0000'});
+            $(this).css({'border-color':'#ff0000'});
             //alert("asd");
         }else{
-            $(this).css({'background':'#fff'});
+            $(this).css({'border-color':'#fff'});
         }
     });
     $('#emailInput').on("keyup", function(){
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if($(this).val().length > 0 && !re.test($(this).val())){
-            $(this).css({'background':'#ff0000'});
+            $(this).css({'border-color':'#ff0000'});
         }else{
-            $(this).css({'background':'#fff'});
+            $(this).css({'border-color':'#fff'});
         }
     });
 });
